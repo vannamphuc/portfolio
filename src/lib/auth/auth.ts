@@ -1,0 +1,73 @@
+import { createServerOnlyFn } from "@tanstack/react-start";
+import { drizzleAdapter } from "better-auth/adapters/drizzle";
+import { betterAuth } from "better-auth/minimal";
+import { magicLink } from "better-auth/plugins";
+import { tanstackStartCookies } from "better-auth/tanstack-start";
+import { env } from "#/env/server";
+import * as schema from "#/lib/db/schema";
+import { db } from "../db";
+import { sendMagicLinkEmail } from "./mail";
+
+const getAuthConfig = createServerOnlyFn(() =>
+	betterAuth({
+		baseURL: env.VITE_BASE_URL,
+		telemetry: {
+			enabled: false,
+		},
+		database: drizzleAdapter(db, {
+			provider: "pg",
+			schema,
+		}),
+
+		// https://www.better-auth.com/docs/integrations/tanstack#usage-tips
+		plugins: [
+			tanstackStartCookies(),
+			magicLink({
+				expiresIn: 5 * 60,
+				sendMagicLink: async ({ email, url }) => {
+					await sendMagicLinkEmail(email, url);
+				},
+			}),
+		],
+
+		// https://www.better-auth.com/docs/concepts/session-management#session-caching
+		session: {
+			cookieCache: {
+				enabled: true,
+				maxAge: 5 * 60, // 5 minutes
+			},
+		},
+
+		// https://www.better-auth.com/docs/concepts/oauth
+		socialProviders: {
+			...(env.GITHUB_CLIENT_ID && env.GITHUB_CLIENT_SECRET
+				? {
+						github: {
+							clientId: env.GITHUB_CLIENT_ID,
+							clientSecret: env.GITHUB_CLIENT_SECRET,
+						},
+					}
+				: {}),
+			...(env.GOOGLE_CLIENT_ID && env.GOOGLE_CLIENT_SECRET
+				? {
+						google: {
+							clientId: env.GOOGLE_CLIENT_ID,
+							clientSecret: env.GOOGLE_CLIENT_SECRET,
+						},
+					}
+				: {}),
+		},
+
+		// https://www.better-auth.com/docs/authentication/email-password
+		emailAndPassword: {
+			enabled: true,
+		},
+
+		experimental: {
+			// https://www.better-auth.com/docs/adapters/drizzle#joins-experimental
+			// joins: true,
+		},
+	}),
+);
+
+export const auth = getAuthConfig();
