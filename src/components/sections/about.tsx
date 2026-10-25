@@ -17,16 +17,30 @@ export function About() {
 				<div>
 					<div className="space-y-4 text-base leading-relaxed text-foreground sm:text-lg">
 						<p>
-							Full-Stack & Mobile Engineer with 2+ years of experience architecting and shipping production systems across React Native, ReactJS, and Node.js.
+							Full-Stack & Mobile Engineer with 2+ years of experience
+							architecting and shipping production systems across React Native,
+							ReactJS, and Node.js.
 						</p>
 						<p>
-							At <strong className="text-primary">Skipli</strong>, I spearheaded cross-platform architecture across a Node.js backend monolith, a React merchant dashboard, and a React Native staff app. I engineered <strong className="text-primary">Oliny</strong> — a Quo-like VoIP business phone featuring Twilio Voice SDK over WebRTC, multi-member dynamic call distribution (blast ring & hunt groups), and a collaborative SMS/MMS inbox.
+							At <strong className="text-primary">Skipli</strong>, I spearheaded
+							cross-platform architecture across a Node.js backend monolith, a
+							React merchant dashboard, and a React Native staff app. I
+							engineered <strong className="text-primary">Oliny</strong> — a
+							Quo-like VoIP business phone featuring Twilio Voice SDK over
+							WebRTC, multi-member dynamic call distribution (blast ring & hunt
+							groups), and a collaborative SMS/MMS inbox.
 						</p>
 						<p>
-							At <strong className="text-primary">DKTech</strong>, I delivered 5+ production mobile and web applications, including <strong className="text-primary">Trade - BO</strong>—a high-frequency cryptocurrency trading platform with real-time candlestick charts (KLineChart) and low-latency WebSocket order book feeds.
+							At <strong className="text-primary">DKTech</strong>, I delivered
+							5+ production mobile and web applications, including{" "}
+							<strong className="text-primary">Trade - BO</strong>—a
+							high-frequency cryptocurrency trading platform with real-time
+							candlestick charts (KLineChart) and low-latency WebSocket order
+							book feeds.
 						</p>
 						<p className="border-l-2 border-primary/60 pl-4 text-sm italic text-foreground/90">
-							Graduated with Distinction (GPA: 8.5/10) in Computer Programming from FPT College.
+							Graduated with Distinction (GPA: 8.5/10) in Computer Programming
+							from FPT College.
 						</p>
 					</div>
 					<Button asChild variant="secondary" className="mt-6 px-0 font-bold">

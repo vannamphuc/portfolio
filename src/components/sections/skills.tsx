@@ -1,4 +1,3 @@
-import type { ReactNode } from "react";
 import { Link } from "@tanstack/react-router";
 import {
 	Cloud,
@@ -10,6 +9,7 @@ import {
 	Sparkles,
 	Workflow,
 } from "lucide-react";
+import type { ReactNode } from "react";
 import { Button } from "#/components/ui/button";
 import ScrollFloat from "#/components/ui/scroll_float";
 import { Nodejs } from "#/components/ui/svgs/nodejs";
@@ -19,9 +19,18 @@ import { Typescript } from "#/components/ui/svgs/typescript";
 import { SMOOTH_SCROLL } from "./shared";
 
 const SKILL_BARS = [
-	{ label: "Backend & Cloud — Node.js / Express / Firebase / AWS / Stripe", value: 92 },
-	{ label: "Mobile & Telephony — React Native / Twilio WebRTC / BLE Printing", value: 90 },
-	{ label: "Frontend & Real-Time — React / Vite / Socket.io / KLineChart", value: 88 },
+	{
+		label: "Backend & Cloud — Node.js / Express / Firebase / AWS / Stripe",
+		value: 92,
+	},
+	{
+		label: "Mobile & Telephony — React Native / Twilio WebRTC / BLE Printing",
+		value: 90,
+	},
+	{
+		label: "Frontend & Real-Time — React / Vite / Socket.io / KLineChart",
+		value: 88,
+	},
 ];
 
 function StackTile({ name, children }: { name: string; children: ReactNode }) {
@@ -41,8 +50,8 @@ export function Skills() {
 			<div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 md:py-24">
 				<ScrollFloat textClassName="font-bold">Tech stack & skills</ScrollFloat>
 				<p className="mt-2 max-w-2xl text-sm text-muted-foreground">
-					Comprehensive production toolchain across mobile engineering, cloud telephony,
-					backend monoliths, and real-time financial charting.
+					Comprehensive production toolchain across mobile engineering, cloud
+					telephony, backend monoliths, and real-time financial charting.
 				</p>
 
 				{/* Key stack tiles */}
@@ -93,21 +102,20 @@ export function Skills() {
 						<div className="mt-4 space-y-3 text-sm leading-relaxed">
 							<div>
 								<span className="font-semibold text-primary">Languages: </span>
-								<span>
-									JavaScript (ES6+), TypeScript, Node.js, HTML5, CSS3
-								</span>
+								<span>JavaScript (ES6+), TypeScript, Node.js, HTML5, CSS3</span>
 							</div>
 							<div>
 								<span className="font-semibold text-primary">Frontend: </span>
 								<span>
-									ReactJS, Next.js, Vite, Tailwind CSS, Ant Design, Material UI, Shadcn/ui
+									ReactJS, Next.js, Vite, Tailwind CSS, Ant Design, Material UI,
+									Shadcn/ui
 								</span>
 							</div>
 							<div>
-								<span className="font-semibold text-primary">Forms & Validation: </span>
-								<span>
-									React Hook Form, Zod, Type-safe state management
+								<span className="font-semibold text-primary">
+									Forms & Validation:{" "}
 								</span>
+								<span>React Hook Form, Zod, Type-safe state management</span>
 							</div>
 						</div>
 					</div>
@@ -123,19 +131,26 @@ export function Skills() {
 							<div>
 								<span className="font-semibold text-primary">Mobile: </span>
 								<span>
-									React Native, Expo, React Navigation, Reanimated, Native Modules (Java/Kotlin), CodePush
+									React Native, Expo, React Navigation, Reanimated, Native
+									Modules (Java/Kotlin), CodePush
 								</span>
 							</div>
 							<div>
-								<span className="font-semibold text-primary">Telephony & Real-time: </span>
+								<span className="font-semibold text-primary">
+									Telephony & Real-time:{" "}
+								</span>
 								<span>
-									Twilio (Voice SDK, Conversations, Subaccounts, TwiML), WebRTC, Socket.io, WebSocket
+									Twilio (Voice SDK, Conversations, Subaccounts, TwiML), WebRTC,
+									Socket.io, WebSocket
 								</span>
 							</div>
 							<div>
-								<span className="font-semibold text-primary">Hardware Printing: </span>
+								<span className="font-semibold text-primary">
+									Hardware Printing:{" "}
+								</span>
 								<span>
-									Thermal Printers (Star Micronics SP700/TSP, Epson via BLE/TCP/LAN), ESC/POS
+									Thermal Printers (Star Micronics SP700/TSP, Epson via
+									BLE/TCP/LAN), ESC/POS
 								</span>
 							</div>
 						</div>
@@ -151,20 +166,23 @@ export function Skills() {
 						<div className="mt-4 space-y-3 text-sm leading-relaxed">
 							<div>
 								<span className="font-semibold text-primary">Backend: </span>
-								<span>
-									Node.js, Express, RESTful APIs, JWT Auth, Webhooks
-								</span>
+								<span>Node.js, Express, RESTful APIs, JWT Auth, Webhooks</span>
 							</div>
 							<div>
-								<span className="font-semibold text-primary">Database & Cloud: </span>
+								<span className="font-semibold text-primary">
+									Database & Cloud:{" "}
+								</span>
 								<span>
 									Firebase (RTDB, Admin SDK, FCM), AWS (S3, CloudFront, SES)
 								</span>
 							</div>
 							<div>
-								<span className="font-semibold text-primary">DevOps & Diagnostics: </span>
+								<span className="font-semibold text-primary">
+									DevOps & Diagnostics:{" "}
+								</span>
 								<span>
-									Git, GitHub Actions CI/CD, Sentry crash analytics, Flipper, Reactotron
+									Git, GitHub Actions CI/CD, Sentry crash analytics, Flipper,
+									Reactotron
 								</span>
 							</div>
 						</div>
@@ -185,15 +203,20 @@ export function Skills() {
 								</span>
 							</div>
 							<div>
-								<span className="font-semibold text-primary">AI Workflows: </span>
+								<span className="font-semibold text-primary">
+									AI Workflows:{" "}
+								</span>
 								<span>
 									OpenAI API, Google Gemini API, dual-AI auto-reply workers
 								</span>
 							</div>
 							<div>
-								<span className="font-semibold text-primary">Integrations & SEO: </span>
+								<span className="font-semibold text-primary">
+									Integrations & SEO:{" "}
+								</span>
 								<span>
-									Google Business Profile API, OAuth2 (Google/Meta/TikTok), JSON-LD LocalBusiness SEO
+									Google Business Profile API, OAuth2 (Google/Meta/TikTok),
+									JSON-LD LocalBusiness SEO
 								</span>
 							</div>
 						</div>

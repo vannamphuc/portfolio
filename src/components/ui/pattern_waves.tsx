@@ -1,5 +1,3 @@
-"use client";
-
 import { Mesh, Program, Renderer, RenderTarget, Texture, Triangle } from "ogl";
 import type { CSSProperties } from "react";
 import { useEffect, useMemo, useRef } from "react";

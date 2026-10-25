@@ -1,7 +1,8 @@
 import type { SVGProps } from "react";
 
 const ReactDark = (props: SVGProps<SVGSVGElement>) => (
-	<svg aria-hidden="true"
+	<svg
+		aria-hidden="true"
 		{...props}
 		viewBox="0 0 569 512"
 		xmlnsXlink="http://www.w3.org/1999/xlink"

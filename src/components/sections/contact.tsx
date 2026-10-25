@@ -12,13 +12,13 @@ import {
 import type { FormEvent } from "react";
 import { useState } from "react";
 import { Button } from "#/components/ui/button";
+import { env } from "#/env/client";
 import { $sendContactEmail } from "#/lib/mail";
 import { SMOOTH_SCROLL } from "./shared";
-import { env } from "#/env/client";
 
 const CONTACT_EMAIL = env.VITE_MY_EMAIL;
 const CONTACT_PHONE = env.VITE_CONTACT_PHONE;
-const CONTACT_PHONE_RAW = "+84" + CONTACT_PHONE.split("0").join("").replaceAll(" ", "");
+const CONTACT_PHONE_RAW = `+84${CONTACT_PHONE.split("0").join("").replaceAll(" ", "")}`;
 const LINKEDIN_URL = env.VITE_LINKEDIN_URL;
 const GITHUB_URL = env.VITE_GITHUB_URL;
 
@@ -27,7 +27,9 @@ function ContactForm() {
 	const [email, setEmail] = useState("");
 	const [subject, setSubject] = useState("");
 	const [message, setMessage] = useState("");
-	const [status, setStatus] = useState<"idle" | "sending" | "error" | "sent">("idle");
+	const [status, setStatus] = useState<"idle" | "sending" | "error" | "sent">(
+		"idle",
+	);
 	const [errorMessage, setErrorMessage] = useState("");
 
 	async function onSubmit(e: FormEvent) {
@@ -57,7 +59,9 @@ function ContactForm() {
 		} catch (err) {
 			console.error("Failed to send message:", err);
 			setStatus("error");
-			setErrorMessage("Failed to send message. Please try again or email me directly.");
+			setErrorMessage(
+				"Failed to send message. Please try again or email me directly.",
+			);
 		}
 	}
 
@@ -181,7 +185,8 @@ export function Contact() {
 									rel="noreferrer noopener"
 									className="inline-flex items-center gap-2.5 opacity-90 transition-opacity hover:opacity-100 hover:underline"
 								>
-									<Linkedin className="size-4" /> linkedin.com/in/van-nam-phuc-41a73622b
+									<Linkedin className="size-4" />{" "}
+									linkedin.com/in/van-nam-phuc-41a73622b
 								</a>
 							</li>
 							<li>

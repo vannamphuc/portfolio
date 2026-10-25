@@ -1,7 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import { ArrowRight, Briefcase, MapPin } from "lucide-react";
-import { Button } from "#/components/ui/button";
 import { Badge } from "#/components/ui/badge";
+import { Button } from "#/components/ui/button";
 import ScrollFloat from "#/components/ui/scroll_float";
 import { EXPERIENCES } from "#/data/experience";
 

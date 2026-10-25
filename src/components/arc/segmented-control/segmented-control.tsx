@@ -1,5 +1,3 @@
-"use client";
-
 import { LayoutGroup, motion, useReducedMotion } from "motion/react";
 import {
 	type KeyboardEvent,

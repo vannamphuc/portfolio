@@ -1,5 +1,4 @@
-"use client";
-
+import { Image } from "@unpic/react";
 import {
 	ArrowRight,
 	BookOpen,
@@ -22,7 +21,6 @@ import {
 	useIsPresent,
 	useReducedMotion,
 } from "motion/react";
-import { Image } from "@unpic/react";
 import type {
 	AnchorHTMLAttributes,
 	ButtonHTMLAttributes,
@@ -625,9 +623,9 @@ export const SiteHeader = forwardRef<HTMLElement, SiteHeaderProps>(
 					previous.height === height
 						? previous
 						: {
-							height,
-							grow: previous.height === null || height > previous.height,
-						},
+								height,
+								grow: previous.height === null || height > previous.height,
+							},
 				),
 			[],
 		);
@@ -831,30 +829,30 @@ export const SiteHeader = forwardRef<HTMLElement, SiteHeaderProps>(
 											reduced
 												? { opacity: 0 }
 												: {
-													opacity: 0,
-													rotate: menuOpen ? -45 : 45,
-													scale: 0.8,
-												}
+														opacity: 0,
+														rotate: menuOpen ? -45 : 45,
+														scale: 0.8,
+													}
 										}
 										animate={{ opacity: 1, rotate: 0, scale: 1 }}
 										exit={
 											reduced
 												? { opacity: 0 }
 												: {
-													opacity: 0,
-													rotate: menuOpen ? 45 : -45,
-													scale: 0.8,
-												}
+														opacity: 0,
+														rotate: menuOpen ? 45 : -45,
+														scale: 0.8,
+													}
 										}
 										transition={
 											reduced
 												? { duration: 0 }
 												: {
-													...motionTokens.spring.snappy,
-													opacity: {
-														duration: motionTokens.duration.instant,
-													},
-												}
+														...motionTokens.spring.snappy,
+														opacity: {
+															duration: motionTokens.duration.instant,
+														},
+													}
 										}
 									>
 										{menuOpen ? (
@@ -893,33 +891,33 @@ export const SiteHeader = forwardRef<HTMLElement, SiteHeaderProps>(
 									exit={
 										reduced
 											? {
-												opacity: 0,
-												transition: {
-													duration: motionTokens.duration.instant,
-												},
-											}
+													opacity: 0,
+													transition: {
+														duration: motionTokens.duration.instant,
+													},
+												}
 											: {
-												opacity: 0,
-												y: -4,
-												scale: 0.99,
-												transition: {
-													duration: motionTokens.duration.exit,
-													ease: standard,
-												},
-											}
+													opacity: 0,
+													y: -4,
+													scale: 0.99,
+													transition: {
+														duration: motionTokens.duration.exit,
+														ease: standard,
+													},
+												}
 									}
 									transition={
 										reduced
 											? { duration: 0 }
 											: {
-												height: panel.grow ? GROW : SHRINK,
-												y: GROW,
-												scale: GROW,
-												opacity: {
-													duration: motionTokens.duration.fast,
-													ease: enter,
-												},
-											}
+													height: panel.grow ? GROW : SHRINK,
+													y: GROW,
+													scale: GROW,
+													opacity: {
+														duration: motionTokens.duration.fast,
+														ease: enter,
+													},
+												}
 									}
 								>
 									<AnimatePresence
@@ -1117,12 +1115,12 @@ export const SiteHeader = forwardRef<HTMLElement, SiteHeaderProps>(
 																			reduced
 																				? { duration: 0 }
 																				: {
-																					height: motionTokens.spring.smooth,
-																					opacity: {
-																						duration:
-																							motionTokens.duration.fast,
-																					},
-																				}
+																						height: motionTokens.spring.smooth,
+																						opacity: {
+																							duration:
+																								motionTokens.duration.fast,
+																						},
+																					}
 																		}
 																	>
 																		<ul>
@@ -1258,13 +1256,15 @@ export function SiteHeaderBlock({
 						</p>
 					</div>
 					<div className={styles.pageRows} aria-hidden="true">
-						{["row-1", "row-2", "row-3", "row-4", "row-5", "row-6"].map((row) => (
-							<div key={row} className={styles.pageRow}>
-								<span />
-								<span />
-								<span />
-							</div>
-						))}
+						{["row-1", "row-2", "row-3", "row-4", "row-5", "row-6"].map(
+							(row) => (
+								<div key={row} className={styles.pageRow}>
+									<span />
+									<span />
+									<span />
+								</div>
+							),
+						)}
 					</div>
 				</div>
 			</div>

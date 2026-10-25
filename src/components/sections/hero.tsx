@@ -39,11 +39,12 @@ export function Hero() {
 						/>
 					</h1>
 					<p className="mt-6 max-w-xl text-base leading-relaxed">
-						Full-Stack & Mobile Engineer with 2+ years of experience architecting and
-						shipping production systems across React Native, ReactJS, and Node.js.
-						Proven track record in owning end-to-end product lifecycles—from system
-						architecture and cloud infrastructure to Twilio VoIP solutions, native hardware
-						integrations, and App Store rollouts.
+						Full-Stack & Mobile Engineer with 2+ years of experience
+						architecting and shipping production systems across React Native,
+						ReactJS, and Node.js. Proven track record in owning end-to-end
+						product lifecycles—from system architecture and cloud infrastructure
+						to Twilio VoIP solutions, native hardware integrations, and App
+						Store rollouts.
 					</p>
 					<div className="mt-8 flex flex-wrap items-center gap-3">
 						<Button asChild size="lg" className="rounded-xl">
@@ -51,7 +52,12 @@ export function Hero() {
 								View my work <ArrowDown />
 							</Link>
 						</Button>
-						<Button asChild size="lg" variant="secondary" className="rounded-xl">
+						<Button
+							asChild
+							size="lg"
+							variant="secondary"
+							className="rounded-xl"
+						>
 							<Link to="/" hash="contact" hashScrollIntoView={SMOOTH_SCROLL}>
 								Contact me <ArrowRight />
 							</Link>

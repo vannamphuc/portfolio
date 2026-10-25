@@ -1,4 +1,5 @@
 import { Link } from "@tanstack/react-router";
+import { Image } from "@unpic/react";
 import {
 	ArrowUpRight,
 	ChevronLeft,
@@ -6,8 +7,7 @@ import {
 	Images,
 	X,
 } from "lucide-react";
-import { useEffect, useState } from "react";
-import { Image } from "@unpic/react";
+import { useCallback, useEffect, useState } from "react";
 import { Button } from "#/components/ui/button";
 import FlexCarousel from "#/components/ui/flex_carousel";
 import ScrollFloat from "#/components/ui/scroll_float";
@@ -25,10 +25,7 @@ const WORKS: WorkProject[] = [
 		src: "/works/oliny/oliny.jpg",
 		title: "Oliny Business Phone",
 		subtitle: "Twilio VoIP (WebRTC) • Shared Inbox • TwiML routing",
-		images: [
-			"/works/oliny/oliny.jpg",
-			"/works/oliny/oliny_2.jpg",
-		],
+		images: ["/works/oliny/oliny.jpg", "/works/oliny/oliny_2.jpg"],
 	},
 	{
 		src: "/works/skipli_buti/dashboard.png",
@@ -80,26 +77,23 @@ export function Works() {
 		setCurrentImageIndex(0);
 	}
 
-	function closeGallery() {
+	const closeGallery = useCallback(() => {
 		setActiveProject(null);
 		setCurrentImageIndex(0);
-	}
+	}, []);
 
-	function nextImage() {
+	const nextImage = useCallback(() => {
 		if (!activeProject) return;
-		setCurrentImageIndex(
-			(prev) => (prev + 1) % activeProject.images.length,
-		);
-	}
+		setCurrentImageIndex((prev) => (prev + 1) % activeProject.images.length);
+	}, [activeProject]);
 
-	function prevImage() {
+	const prevImage = useCallback(() => {
 		if (!activeProject) return;
 		setCurrentImageIndex(
 			(prev) =>
-				(prev - 1 + activeProject.images.length) %
-				activeProject.images.length,
+				(prev - 1 + activeProject.images.length) % activeProject.images.length,
 		);
-	}
+	}, [activeProject]);
 
 	// Keyboard navigation in modal (ESC, Left, Right)
 	useEffect(() => {
@@ -122,7 +116,7 @@ export function Works() {
 			window.removeEventListener("keydown", handleKeyDown);
 			document.body.style.overflow = "";
 		};
-	}, [activeProject]);
+	}, [activeProject, closeGallery, nextImage, prevImage]);
 
 	return (
 		<section id="works" className="scroll-mt-24 border-t border-border">
@@ -132,7 +126,8 @@ export function Works() {
 						<ScrollFloat textClassName="font-bold">Selected work</ScrollFloat>
 						<p className="mt-2 max-w-xl text-sm text-foreground/90">
 							Production systems and flagship features I architected across
-							Skipli, Oliny, and DKTech — click any project card to view high-resolution gallery.
+							Skipli, Oliny, and DKTech — click any project card to view
+							high-resolution gallery.
 						</p>
 					</div>
 					<Button asChild variant="secondary" className="rounded-xl">
@@ -161,12 +156,19 @@ export function Works() {
 			{/* ================= PROJECT IMAGE MODAL / LIGHTBOX ================= */}
 			{activeProject && (
 				<div
+					role="dialog"
+					aria-modal="true"
 					className="fixed inset-0 z-50 flex items-center justify-center bg-black/85 p-3 backdrop-blur-md sm:p-6"
 					onClick={closeGallery}
+					onKeyDown={(e) => {
+						if (e.key === "Escape") closeGallery();
+					}}
 				>
 					<div
+						role="document"
 						className="relative flex max-h-[94vh] w-full max-w-5xl flex-col overflow-hidden rounded-2xl border border-border/60 bg-background/95 shadow-2xl backdrop-blur sm:rounded-3xl"
 						onClick={(e) => e.stopPropagation()}
+						onKeyDown={(e) => e.stopPropagation()}
 					>
 						{/* Modal Header */}
 						<div className="flex items-center justify-between border-b border-border/60 px-5 py-3.5 sm:px-6 sm:py-4">

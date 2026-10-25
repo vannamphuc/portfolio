@@ -26,10 +26,12 @@ function ExperiencePage() {
 							<ArrowLeft /> Back to home
 						</Link>
 					</Button>
-					<ScrollFloat textClassName="font-bold">Full experience & education</ScrollFloat>
+					<ScrollFloat textClassName="font-bold">
+						Full experience & education
+					</ScrollFloat>
 					<p className="mt-2 max-w-2xl text-sm text-muted-foreground">
-						Comprehensive record of engineering roles, production systems, and academic distinction
-						across Skipli, DKTech, and FPT College.
+						Comprehensive record of engineering roles, production systems, and
+						academic distinction across Skipli, DKTech, and FPT College.
 					</p>
 				</div>
 			</section>

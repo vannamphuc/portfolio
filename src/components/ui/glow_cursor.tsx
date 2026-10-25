@@ -1,5 +1,3 @@
-"use client";
-
 import { Mesh, Program, Renderer, Triangle } from "ogl";
 import { type HTMLAttributes, type ReactNode, useEffect, useRef } from "react";
 

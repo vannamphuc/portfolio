@@ -35,12 +35,18 @@ const MAIN_SERVICES = [
 const SERVICE_LIST = [
 	{ icon: PhoneCall, label: "Twilio VoIP calling (WebRTC) & dynamic TwiML" },
 	{ icon: Server, label: "Node.js REST APIs & webhooks" },
-	{ icon: LineChart, label: "Real-time trading & WebSocket feeds (KLineChart)" },
+	{
+		icon: LineChart,
+		label: "Real-time trading & WebSocket feeds (KLineChart)",
+	},
 	{ icon: Sparkles, label: "Dual-AI automation (OpenAI & Gemini APIs)" },
 	{ icon: Printer, label: "Thermal kitchen printing (Star SP700/TSP & Epson)" },
 	{ icon: Zap, label: "Stripe Connect marketplace payouts & billing" },
 	{ icon: Smartphone, label: "React Native & Expo cross-platform mobile apps" },
-	{ icon: Layers, label: "Zero-downtime CodePush OTA & Sentry crash analytics" },
+	{
+		icon: Layers,
+		label: "Zero-downtime CodePush OTA & Sentry crash analytics",
+	},
 ];
 
 export function Services() {
@@ -50,11 +56,13 @@ export function Services() {
 				<ScrollFloat textClassName="font-bold">What I ship</ScrollFloat>
 				<div className="mt-4 grid gap-10 md:grid-cols-[0.9fr_1.1fr]">
 					<div>
-						<h3 className="text-xl font-bold">Full-Stack & Mobile Architecture</h3>
+						<h3 className="text-xl font-bold">
+							Full-Stack & Mobile Architecture
+						</h3>
 						<p className="mt-3 text-sm leading-relaxed text-muted-foreground">
 							End-to-end product engineering spanning cloud infrastructure,
-							telephony engines, high-frequency trading platforms, and native hardware
-							drivers with 2+ years of production experience.
+							telephony engines, high-frequency trading platforms, and native
+							hardware drivers with 2+ years of production experience.
 						</p>
 						<ul className="mt-6 space-y-2.5 text-sm font-medium">
 							{SERVICE_LIST.map((s) => (
