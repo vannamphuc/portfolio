@@ -195,7 +195,7 @@ export function Contact() {
 								</a>
 							</li>
 							<li className="inline-flex items-center gap-2.5 opacity-90">
-								<MapPin className="size-4" /> Vietnam · US-market SaaS & Cloud Telephony
+								<MapPin className="size-4" /> Ho Chi Minh City - Viet Nam
 							</li>
 						</ul>
 						<div className="mt-8 flex flex-wrap gap-3">
