@@ -1,6 +1,49 @@
 import nodemailer, { type Transporter } from "nodemailer";
 import { env } from "#/env/server";
 
+const submissionWindowMs = 60 * 60 * 1000;
+const maxSubmissionsPerWindow = 5;
+const submissionsByIp = new Map<string, number[]>();
+
+export function checkContactRateLimit(ip: string): boolean {
+	const now = Date.now();
+	if (submissionsByIp.size >= 10_000 && !submissionsByIp.has(ip)) {
+		for (const [key, timestamps] of submissionsByIp) {
+			if (
+				timestamps.every((timestamp) => now - timestamp >= submissionWindowMs)
+			) {
+				submissionsByIp.delete(key);
+			}
+		}
+		if (submissionsByIp.size >= 10_000) {
+			return false;
+		}
+	}
+	const recentSubmissions = (submissionsByIp.get(ip) ?? []).filter(
+		(timestamp) => now - timestamp < submissionWindowMs,
+	);
+	if (recentSubmissions.length >= maxSubmissionsPerWindow) {
+		submissionsByIp.set(ip, recentSubmissions);
+		return false;
+	}
+	recentSubmissions.push(now);
+	submissionsByIp.set(ip, recentSubmissions);
+	return true;
+}
+
+function escapeHtml(value: string): string {
+	return value.replace(/[&<>"']/g, (char) => {
+		const entities: Record<string, string> = {
+			"&": "&amp;",
+			"<": "&lt;",
+			">": "&gt;",
+			'"': "&quot;",
+			"'": "&#39;",
+		};
+		return entities[char];
+	});
+}
+
 let transporter: Transporter | null = null;
 
 function getTransporter(): Transporter | null {
@@ -37,14 +80,25 @@ export async function sendContactEmail(opts: {
 
 	const smtp = getTransporter();
 	if (!smtp) {
-		console.log(
-			`[mail] No SMTP configured in .env. Contact from ${opts.name} <${opts.from}>:\nSubject: ${opts.subject || "(none)"}\nMessage: ${opts.message}`,
+		console.error(
+			"[mail] SMTP is not configured; contact message was not sent.",
 		);
-		return { success: true, simulated: true };
+		return { success: false, reason: "smtp_not_configured" };
 	}
+	const smtpUser = env.SMTP_USER;
+	if (!smtpUser) {
+		console.error(
+			"[mail] SMTP is not configured; contact message was not sent.",
+		);
+		return { success: false, reason: "smtp_not_configured" };
+	}
+	const name = escapeHtml(opts.name);
+	const email = escapeHtml(opts.from);
+	const subject = opts.subject ? escapeHtml(opts.subject) : "";
+	const message = escapeHtml(opts.message);
 
 	await smtp.sendMail({
-		from: `"${opts.name}" <${env.SMTP_USER}>`,
+		from: { name: opts.name, address: smtpUser },
 		replyTo: opts.from,
 		to,
 		subject: opts.subject?.trim() || `[Portfolio] Message from ${opts.name}`,
@@ -52,14 +106,14 @@ export async function sendContactEmail(opts: {
 		html: `
 			<div style="font-family: sans-serif; line-height: 1.6; color: #111;">
 				<h2 style="margin-bottom: 8px;">New message from portfolio contact form</h2>
-				<p><strong>Name:</strong> ${opts.name}</p>
-				<p><strong>Email:</strong> <a href="mailto:${opts.from}">${opts.from}</a></p>
-				${opts.subject ? `<p><strong>Subject:</strong> ${opts.subject}</p>` : ""}
+				<p><strong>Name:</strong> ${name}</p>
+				<p><strong>Email:</strong> <a href="mailto:${email}">${email}</a></p>
+				${subject ? `<p><strong>Subject:</strong> ${subject}</p>` : ""}
 				<hr style="border: 0; border-top: 1px solid #ddd; margin: 16px 0;" />
-				<p style="white-space: pre-wrap;">${opts.message}</p>
+				<p style="white-space: pre-wrap;">${message}</p>
 			</div>
 		`,
 	});
 
-	return { success: true, simulated: false };
+	return { success: true };
 }

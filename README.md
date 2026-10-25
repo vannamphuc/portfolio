@@ -67,6 +67,9 @@ Open `.env` and fill in your contact information and SMTP credentials:
 # Public
 VITE_BASE_URL=http://localhost:3000
 VITE_MY_EMAIL=your_email@gmail.com
+VITE_CONTACT_PHONE=0901234567
+VITE_LINKEDIN_URL=https://www.linkedin.com/in/your-profile
+VITE_GITHUB_URL=https://github.com/your-username
 
 # SMTP Server Action (e.g. Gmail App Password)
 SMTP_HOST=smtp.gmail.com

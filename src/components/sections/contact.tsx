@@ -43,7 +43,7 @@ function ContactForm() {
 		try {
 			setStatus("sending");
 			setErrorMessage("");
-			await $sendContactEmail({
+			const result = await $sendContactEmail({
 				data: {
 					name: name.trim(),
 					email: email.trim(),
@@ -51,6 +51,9 @@ function ContactForm() {
 					message: message.trim(),
 				},
 			});
+			if (!result.success) {
+				throw new Error("Contact message was not sent");
+			}
 			setStatus("sent");
 			setName("");
 			setEmail("");

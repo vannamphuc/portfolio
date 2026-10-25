@@ -6,7 +6,7 @@ export const env = createEnv({
 		VITE_BASE_URL: z.url().default("http://localhost:3000"),
 
 		// SMTP for contact form emails (nodemailer), optional
-		// Without these, emails are logged to the server console instead
+		// Without these, contact form delivery is unavailable
 		SMTP_HOST: z.string().optional(),
 		SMTP_PORT: z.coerce.number().optional(),
 		SMTP_USER: z.string().optional(),
