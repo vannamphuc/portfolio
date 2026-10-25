@@ -8,6 +8,7 @@ import {
   CardTitle,
 } from "#/components/ui/card.tsx";
 import { Separator } from "#/components/ui/separator.tsx";
+import Me from "#/assets/me.jpg"
 
 export interface CardProfileStat {
   label: string;
@@ -26,16 +27,16 @@ export interface CardProfileProps {
 }
 
 export function CardProfile({
-  name = "Phuc Nam",
-  initials = "PN",
-  title = "Full-Stack Engineer",
+  name = "Van Nam Phuc",
+  initials = "VP",
+  title = "Full-Stack & Mobile Engineer",
   badge = "Open to work",
-  email = "dylanclarke.engineer@gmail.com",
-  avatarUrl = "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800&q=80&auto=format&fit=crop",
+  email = "phucnamvan@gmail.com",
+  avatarUrl = Me,
   stats = [
-    { label: "Production repos", value: "3" },
-    { label: "Companies", value: "2" },
-    { label: "Flagship features", value: "6+" },
+    { label: "Experience", value: "2+ Yrs" },
+    { label: "Production Apps", value: "5+" },
+    { label: "FPT College", value: "8.5 GPA" },
   ],
   className,
 }: CardProfileProps) {

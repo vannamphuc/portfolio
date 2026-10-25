@@ -7,34 +7,34 @@ import { SMOOTH_SCROLL } from "./shared";
 
 const WORKS = [
 	{
-		src: "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=1200&q=80&auto=format&fit=crop",
-		title: "ListingsHub",
-		subtitle: "Google Business • 1831+ lines • Profiles + reviews",
+		src: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=1200&q=80&auto=format&fit=crop",
+		title: "Oliny Business Phone",
+		subtitle: "Twilio VoIP (WebRTC) • Shared Inbox • TwiML routing",
 	},
 	{
-		src: "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=1200&q=80&auto=format&fit=crop",
-		title: "FoodMenus publish",
-		subtitle: "Menus API • 4033+ lines • Publish modal",
+		src: "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=1200&q=80&auto=format&fit=crop",
+		title: "Skipli / BUTI Platform",
+		subtitle: "Restaurant SaaS • Node.js monolith • React web & mobile",
+	},
+	{
+		src: "https://images.unsplash.com/photo-1642543492481-44e81e3914a7?w=1200&q=80&auto=format&fit=crop",
+		title: "Trade - BO Platform",
+		subtitle: "Crypto trading • KLineChart • Live WebSocket order books",
 	},
 	{
 		src: "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=1200&q=80&auto=format&fit=crop",
 		title: "Reviews AI auto-reply",
-		subtitle: "OpenAI + Gemini • Worker + backfill",
-	},
-	{
-		src: "https://images.unsplash.com/photo-1552566626-52f8b828add9?w=1200&q=80&auto=format&fit=crop",
-		title: "Auth & onboarding",
-		subtitle: "OTP • 6304+ lines • 39 files rebuilt",
+		subtitle: "Google Business API • OpenAI & Gemini dual-worker",
 	},
 	{
 		src: "https://images.unsplash.com/photo-1559329007-40dfad34bb52?w=1200&q=80&auto=format&fit=crop",
-		title: "Thermal printing",
-		subtitle: "SP700 / Epson / Star • BLE + TCP + LAN",
+		title: "Thermal printing engine",
+		subtitle: "Star Micronics & Epson • BLE + TCP + LAN discovery",
 	},
 	{
-		src: "https://images.unsplash.com/photo-1466978913421-dad2ebd01d17?w=1200&q=80&auto=format&fit=crop",
-		title: "SEO / GEO infra",
-		subtitle: "Canonical • JSON-LD • AI-visibility docs",
+		src: "https://images.unsplash.com/photo-1552566626-52f8b828add9?w=1200&q=80&auto=format&fit=crop",
+		title: "Stripe & Cloud Infra",
+		subtitle: "Stripe Connect payouts • AWS S3/CloudFront • CodePush OTA",
 	},
 ];
 
@@ -45,12 +45,12 @@ export function Works() {
 				<div className="flex flex-wrap items-end justify-between gap-4">
 					<div>
 						<ScrollFloat textClassName="font-bold">Selected work</ScrollFloat>
-						<p className="mt-2 max-w-xl text-sm text-muted-foreground">
-							Flagship features I owned on Skipli/BUTI — drag, scroll or
-							click a card to explore.
+						<p className="mt-2 max-w-xl text-sm">
+							Production systems and flagship features I architected across
+							Skipli, Oliny, and DKTech — drag, scroll or click a card to explore.
 						</p>
 					</div>
-					<Button asChild variant="outline" className="rounded-xl">
+					<Button asChild variant="secondary" className="rounded-xl">
 						<Link to="/" hash="contact" hashScrollIntoView={SMOOTH_SCROLL}>
 							Start a project <ArrowUpRight />
 						</Link>

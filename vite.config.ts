@@ -7,7 +7,6 @@ import { tanstackStart } from '@tanstack/react-start/plugin/vite'
 import viteReact, { reactCompilerPreset } from '@vitejs/plugin-react'
 import babel from '@rolldown/plugin-babel'
 import tailwindcss from '@tailwindcss/vite'
-import neon from './neon-vite-plugin.ts'
 
 const config = defineConfig({
   resolve: { tsconfigPaths: true },
@@ -18,7 +17,6 @@ const config = defineConfig({
       outdir: './src/paraglide',
       strategy: ['url', 'baseLocale'],
     }),
-    neon,
     tailwindcss(),
     tanstackStart(),
     viteReact(),

@@ -1,43 +1,64 @@
 import { Link } from "@tanstack/react-router";
-import { ArrowUpRight, Github, Mail, MapPin, Send } from "lucide-react";
+import {
+	ArrowUpRight,
+	Github,
+	Linkedin,
+	Loader2,
+	Mail,
+	MapPin,
+	Phone,
+	Send,
+} from "lucide-react";
 import type { FormEvent } from "react";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Button } from "#/components/ui/button";
-import authClient from "#/lib/auth/auth-client";
+import { $sendContactEmail } from "#/lib/mail";
 import { SMOOTH_SCROLL } from "./shared";
+import { env } from "#/env/client";
 
-const CONTACT_EMAIL = "dylanclarke.engineer@gmail.com";
+const CONTACT_EMAIL = env.VITE_MY_EMAIL;
+const CONTACT_PHONE = env.VITE_CONTACT_PHONE;
+const CONTACT_PHONE_RAW = "+84" + CONTACT_PHONE.split("0").join("").replaceAll(" ", "");
+const LINKEDIN_URL = env.VITE_LINKEDIN_URL;
+const GITHUB_URL = env.VITE_GITHUB_URL;
 
 function ContactForm() {
-	const { data: session } = authClient.useSession();
-	const sessionUser = session?.user;
 	const [name, setName] = useState("");
 	const [email, setEmail] = useState("");
 	const [subject, setSubject] = useState("");
 	const [message, setMessage] = useState("");
-	const [status, setStatus] = useState<"idle" | "error" | "sent">("idle");
+	const [status, setStatus] = useState<"idle" | "sending" | "error" | "sent">("idle");
+	const [errorMessage, setErrorMessage] = useState("");
 
-	useEffect(() => {
-		if (sessionUser) {
-			setName((current) => current || sessionUser.name || "");
-			setEmail((current) => current || sessionUser.email || "");
-		}
-	}, [sessionUser]);
-
-	function onSubmit(e: FormEvent) {
+	async function onSubmit(e: FormEvent) {
 		e.preventDefault();
 		if (!name.trim() || !email.trim() || !message.trim()) {
 			setStatus("error");
+			setErrorMessage("Please fill in your name, email, and message.");
 			return;
 		}
-		const mailSubject = encodeURIComponent(
-			subject.trim() || `Portfolio contact from ${name.trim()}`,
-		);
-		const body = encodeURIComponent(
-			`Name: ${name.trim()}\nEmail: ${email.trim()}\n\n${message.trim()}`,
-		);
-		window.location.href = `mailto:${CONTACT_EMAIL}?subject=${mailSubject}&body=${body}`;
-		setStatus("sent");
+
+		try {
+			setStatus("sending");
+			setErrorMessage("");
+			await $sendContactEmail({
+				data: {
+					name: name.trim(),
+					email: email.trim(),
+					subject: subject.trim(),
+					message: message.trim(),
+				},
+			});
+			setStatus("sent");
+			setName("");
+			setEmail("");
+			setSubject("");
+			setMessage("");
+		} catch (err) {
+			console.error("Failed to send message:", err);
+			setStatus("error");
+			setErrorMessage("Failed to send message. Please try again or email me directly.");
+		}
 	}
 
 	return (
@@ -45,19 +66,6 @@ function ContactForm() {
 			onSubmit={onSubmit}
 			className="rounded-3xl border border-border/60 bg-background/80 p-6 shadow-sm backdrop-blur md:p-8"
 		>
-			{sessionUser ? (
-				<p className="mb-4 rounded-xl bg-primary/10 px-4 py-2 text-xs font-medium text-primary">
-					Signed in as {sessionUser.name || sessionUser.email} — name and
-					email are prefilled.
-				</p>
-			) : (
-				<p className="mb-4 rounded-xl border border-border px-4 py-2 text-xs text-muted-foreground">
-					<Button asChild variant="link" className="h-auto p-0 text-xs font-bold">
-						<Link to="/admin/login">Sign in</Link>
-					</Button>{" "}
-					to prefill your name and email.
-				</p>
-			)}
 			<div className="grid gap-4 sm:grid-cols-2">
 				<label className="grid gap-1.5 text-sm font-medium">
 					Name
@@ -103,16 +111,29 @@ function ContactForm() {
 			</label>
 			{status === "error" && (
 				<p className="mt-3 rounded-xl bg-destructive/10 px-4 py-2 text-xs font-medium text-destructive">
-					Please fill in your name, email and message.
+					{errorMessage || "Please fill in your name, email and message."}
 				</p>
 			)}
 			{status === "sent" && (
 				<p className="mt-3 rounded-xl bg-primary/10 px-4 py-2 text-xs font-medium text-primary">
-					Opening your mail app — I usually reply within 24 hours.
+					✓ Message sent successfully! I usually reply within 24 hours.
 				</p>
 			)}
-			<Button type="submit" size="lg" className="mt-5 w-full rounded-xl sm:w-auto">
-				<Send /> Send message
+			<Button
+				type="submit"
+				size="lg"
+				disabled={status === "sending"}
+				className="mt-5 w-full rounded-xl sm:w-auto"
+			>
+				{status === "sending" ? (
+					<>
+						<Loader2 className="animate-spin" /> Sending...
+					</>
+				) : (
+					<>
+						<Send /> Send message
+					</>
+				)}
 			</Button>
 		</form>
 	);
@@ -145,18 +166,36 @@ export function Contact() {
 									<Mail className="size-4" /> {CONTACT_EMAIL}
 								</a>
 							</li>
-							<li className="inline-flex items-center gap-2.5 opacity-90">
-								<MapPin className="size-4" /> Vietnam · US-market SaaS
+							<li>
+								<a
+									href={`tel:${CONTACT_PHONE_RAW}`}
+									className="inline-flex items-center gap-2.5 opacity-90 transition-opacity hover:opacity-100 hover:underline"
+								>
+									<Phone className="size-4" /> {CONTACT_PHONE}
+								</a>
 							</li>
 							<li>
 								<a
-									href="https://github.com/vannamphuc"
+									href={LINKEDIN_URL}
+									target="_blank"
+									rel="noreferrer noopener"
+									className="inline-flex items-center gap-2.5 opacity-90 transition-opacity hover:opacity-100 hover:underline"
+								>
+									<Linkedin className="size-4" /> linkedin.com/in/van-nam-phuc-41a73622b
+								</a>
+							</li>
+							<li>
+								<a
+									href={GITHUB_URL}
 									target="_blank"
 									rel="noreferrer noopener"
 									className="inline-flex items-center gap-2.5 opacity-90 transition-opacity hover:opacity-100 hover:underline"
 								>
 									<Github className="size-4" /> github.com/vannamphuc
 								</a>
+							</li>
+							<li className="inline-flex items-center gap-2.5 opacity-90">
+								<MapPin className="size-4" /> Vietnam · US-market SaaS & Cloud Telephony
 							</li>
 						</ul>
 						<div className="mt-8 flex flex-wrap gap-3">
@@ -185,8 +224,8 @@ export function Contact() {
 					<ContactForm />
 				</div>
 				<footer className="flex flex-wrap items-center justify-between gap-3 pt-8 text-xs text-muted-foreground">
-					<p>© 2026 Phuc Nam. All rights reserved.</p>
-					<p>Node.js • React • React Native • Skipli/BUTI</p>
+					<p>© 2026 Van Nam Phuc. All rights reserved.</p>
+					<p>React Native • ReactJS • Node.js • Twilio VoIP • AWS</p>
 				</footer>
 			</div>
 		</section>

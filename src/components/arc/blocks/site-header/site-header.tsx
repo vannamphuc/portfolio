@@ -375,8 +375,8 @@ export const SiteHeader = forwardRef<HTMLElement, SiteHeaderProps>(
 			defaultCurrent,
 			onCurrentChange,
 			onNavigate,
-			secondaryAction = { label: "Sign in" },
-			primaryAction = { label: "Get Arc" },
+			secondaryAction,
+			primaryAction,
 			trailing,
 			sticky = true,
 			scrollContainer,
@@ -625,9 +625,9 @@ export const SiteHeader = forwardRef<HTMLElement, SiteHeaderProps>(
 					previous.height === height
 						? previous
 						: {
-								height,
-								grow: previous.height === null || height > previous.height,
-							},
+							height,
+							grow: previous.height === null || height > previous.height,
+						},
 				),
 			[],
 		);
@@ -831,30 +831,30 @@ export const SiteHeader = forwardRef<HTMLElement, SiteHeaderProps>(
 											reduced
 												? { opacity: 0 }
 												: {
-														opacity: 0,
-														rotate: menuOpen ? -45 : 45,
-														scale: 0.8,
-													}
+													opacity: 0,
+													rotate: menuOpen ? -45 : 45,
+													scale: 0.8,
+												}
 										}
 										animate={{ opacity: 1, rotate: 0, scale: 1 }}
 										exit={
 											reduced
 												? { opacity: 0 }
 												: {
-														opacity: 0,
-														rotate: menuOpen ? 45 : -45,
-														scale: 0.8,
-													}
+													opacity: 0,
+													rotate: menuOpen ? 45 : -45,
+													scale: 0.8,
+												}
 										}
 										transition={
 											reduced
 												? { duration: 0 }
 												: {
-														...motionTokens.spring.snappy,
-														opacity: {
-															duration: motionTokens.duration.instant,
-														},
-													}
+													...motionTokens.spring.snappy,
+													opacity: {
+														duration: motionTokens.duration.instant,
+													},
+												}
 										}
 									>
 										{menuOpen ? (
@@ -893,33 +893,33 @@ export const SiteHeader = forwardRef<HTMLElement, SiteHeaderProps>(
 									exit={
 										reduced
 											? {
-													opacity: 0,
-													transition: {
-														duration: motionTokens.duration.instant,
-													},
-												}
+												opacity: 0,
+												transition: {
+													duration: motionTokens.duration.instant,
+												},
+											}
 											: {
-													opacity: 0,
-													y: -4,
-													scale: 0.99,
-													transition: {
-														duration: motionTokens.duration.exit,
-														ease: standard,
-													},
-												}
+												opacity: 0,
+												y: -4,
+												scale: 0.99,
+												transition: {
+													duration: motionTokens.duration.exit,
+													ease: standard,
+												},
+											}
 									}
 									transition={
 										reduced
 											? { duration: 0 }
 											: {
-													height: panel.grow ? GROW : SHRINK,
-													y: GROW,
-													scale: GROW,
-													opacity: {
-														duration: motionTokens.duration.fast,
-														ease: enter,
-													},
-												}
+												height: panel.grow ? GROW : SHRINK,
+												y: GROW,
+												scale: GROW,
+												opacity: {
+													duration: motionTokens.duration.fast,
+													ease: enter,
+												},
+											}
 									}
 								>
 									<AnimatePresence
@@ -1117,12 +1117,12 @@ export const SiteHeader = forwardRef<HTMLElement, SiteHeaderProps>(
 																			reduced
 																				? { duration: 0 }
 																				: {
-																						height: motionTokens.spring.smooth,
-																						opacity: {
-																							duration:
-																								motionTokens.duration.fast,
-																						},
-																					}
+																					height: motionTokens.spring.smooth,
+																					opacity: {
+																						duration:
+																							motionTokens.duration.fast,
+																					},
+																				}
 																		}
 																	>
 																		<ul>
@@ -1249,14 +1249,6 @@ export function SiteHeaderBlock({
 					onCurrentChange={setCurrent}
 					onNavigate={(destination) => setLast(destination.label)}
 					scrollContainer={scrollRef}
-					secondaryAction={{
-						label: "Sign in",
-						onClick: () => setLast("Sign in"),
-					}}
-					primaryAction={{
-						label: "Get Arc",
-						onClick: () => setLast("Get Arc"),
-					}}
 				/>
 				<div className={styles.page}>
 					<div className={styles.pageHero}>

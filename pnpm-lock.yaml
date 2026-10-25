@@ -41,9 +41,6 @@ importers:
       '@tanstack/react-start':
         specifier: 1.168.60
         version: 1.168.60(esbuild@0.28.2)(react-dom@19.3.0(react@19.3.0))(react@19.3.0)(rolldown@1.2.12)(vite@8.3.2(@types/node@22.20.5)(esbuild@0.28.2)(jiti@2.7.0)(tsx@4.23.15))
-      '@unpic/preact':
-        specifier: ^1.0.0
-        version: 1.0.0(preact@11.0.0)
       '@unpic/react':
         specifier: ^1.0.2
         version: 1.0.2(react-dom@19.3.0(react@19.3.0))(react@19.3.0)
@@ -2725,11 +2722,6 @@ packages:
   '@unpic/core@1.0.3':
     resolution: {integrity: sha512-aum9YNVUGso7MjGLD0Rp/08kywCGLqZ03/q6VQBFFakDBOXWEc8D4kPGcZ8v5wEnGRex3lE+++bOuucBp3KJ/w==}
 
-  '@unpic/preact@1.0.0':
-    resolution: {integrity: sha512-Q94onwQO7BVHL0OE1OhKljORV7aqghjCBre7lMSba53I8ddgPmmXsfUPE2zWN2aWOkElBqRJ9I5ohewRN/Zc3g==}
-    peerDependencies:
-      preact: '*'
-
   '@unpic/react@1.0.2':
     resolution: {integrity: sha512-5RmRfELwTF8w+4zjtQGqjpvX+RU2VLvis3xDCS1O2uWk0PZN2cvatL+3/KAR3mshAuRrkFGTX1XwyAezSXaoCA==}
     peerDependencies:
@@ -4184,14 +4176,6 @@ packages:
   powershell-utils@0.2.1:
     resolution: {integrity: sha512-C+y9x90UElAddDZmV4qOx9W53B61PO7cIqWz2dQsWlwswuq4mr8NEwytdGKboYbQlGZ3awrkTeNvcZiZNHnQ8A==}
     engines: {node: '>=20'}
-
-  preact@11.0.0:
-    resolution: {integrity: sha512-LRTLKuSe6VYPhvBDjwFaX+nuZnpsw6IN2GSboisAvhGsncylBmrbDCERhgKDn6yP2mAwbGvsB5OVyTe33M8gBg==}
-    peerDependencies:
-      preact-render-to-string: '>=6.7.0'
-    peerDependenciesMeta:
-      preact-render-to-string:
-        optional: true
 
   prettier@3.9.9:
     resolution: {integrity: sha512-Z/CJHIkdujO/OtN7nXUii0Rf3VT5SRuhjBA82Xvu2XhBUgX3nhP67T0LHceBdQLex7OOFGTox+Q5Yg8Jk2Qivg==}
@@ -7251,11 +7235,6 @@ snapshots:
     dependencies:
       unpic: 4.2.2
 
-  '@unpic/preact@1.0.0(preact@11.0.0)':
-    dependencies:
-      '@unpic/core': 1.0.3
-      preact: 11.0.0
-
   '@unpic/react@1.0.2(react-dom@19.3.0(react@19.3.0))(react@19.3.0)':
     dependencies:
       '@unpic/core': 1.0.3
@@ -8505,8 +8484,6 @@ snapshots:
   postgres@3.4.9: {}
 
   powershell-utils@0.2.1: {}
-
-  preact@11.0.0: {}
 
   prettier@3.9.9: {}
 

@@ -11,7 +11,7 @@ export function Experience() {
 			<div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 md:py-24">
 				<div className="flex flex-wrap items-end justify-between gap-4">
 					<ScrollFloat textClassName="font-bold">Experience</ScrollFloat>
-					<Button asChild variant="outline" className="rounded-xl">
+					<Button asChild variant="secondary" className="rounded-xl">
 						<Link to="/experience">
 							See more experience <ArrowRight />
 						</Link>
@@ -41,7 +41,7 @@ export function Experience() {
 								{role.summary}
 							</p>
 							<div className="mt-4 flex flex-wrap gap-1.5">
-								{role.stack.slice(0, 6).map((t) => (
+								{role.stack.slice(0, 8).map((t) => (
 									<Badge
 										key={t}
 										variant="outline"

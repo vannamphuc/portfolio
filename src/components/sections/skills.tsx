@@ -1,6 +1,15 @@
 import type { ReactNode } from "react";
 import { Link } from "@tanstack/react-router";
-import { Cloud, Database, Printer, Workflow, Zap } from "lucide-react";
+import {
+	Cloud,
+	Cpu,
+	Database,
+	Layers,
+	PhoneCall,
+	Printer,
+	Sparkles,
+	Workflow,
+} from "lucide-react";
 import { Button } from "#/components/ui/button";
 import ScrollFloat from "#/components/ui/scroll_float";
 import { Nodejs } from "#/components/ui/svgs/nodejs";
@@ -10,9 +19,9 @@ import { Typescript } from "#/components/ui/svgs/typescript";
 import { SMOOTH_SCROLL } from "./shared";
 
 const SKILL_BARS = [
-	{ label: "Backend — Node / Express / Firebase / Stripe", value: 90 },
-	{ label: "Web — React 18 / Router 6 / Vite / Sass", value: 88 },
-	{ label: "Mobile — RN 0.77 / Navigation / BLE printing", value: 84 },
+	{ label: "Backend & Cloud — Node.js / Express / Firebase / AWS / Stripe", value: 92 },
+	{ label: "Mobile & Telephony — React Native / Twilio WebRTC / BLE Printing", value: 90 },
+	{ label: "Frontend & Real-Time — React / Vite / Socket.io / KLineChart", value: 88 },
 ];
 
 function StackTile({ name, children }: { name: string; children: ReactNode }) {
@@ -30,68 +39,168 @@ export function Skills() {
 	return (
 		<section id="skills" className="scroll-mt-24 border-t border-border">
 			<div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 md:py-24">
-				<ScrollFloat textClassName="font-bold">Tech stack</ScrollFloat>
+				<ScrollFloat textClassName="font-bold">Tech stack & skills</ScrollFloat>
 				<p className="mt-2 max-w-2xl text-sm text-muted-foreground">
-					The production stack behind Skipli/BUTI — backend monolith,
-					merchant dashboard, and staff mobile app.
+					Comprehensive production toolchain across mobile engineering, cloud telephony,
+					backend monoliths, and real-time financial charting.
 				</p>
 
-				<div className="mt-8 grid gap-6 md:grid-cols-2">
+				{/* Key stack tiles */}
+				<div className="mt-8 grid grid-cols-2 gap-3 sm:grid-cols-4 lg:grid-cols-5">
+					<StackTile name="Node.js 22">
+						<Nodejs />
+					</StackTile>
+					<StackTile name="TypeScript">
+						<Typescript />
+					</StackTile>
+					<StackTile name="ReactJS">
+						<ReactLight className="dark:hidden" />
+						<ReactDark className="hidden dark:block" />
+					</StackTile>
+					<StackTile name="React Native">
+						<ReactLight className="dark:hidden" />
+						<ReactDark className="hidden dark:block" />
+					</StackTile>
+					<StackTile name="Twilio / WebRTC">
+						<PhoneCall className="size-5 text-foreground" />
+					</StackTile>
+					<StackTile name="Firebase RTDB">
+						<Database className="size-5 text-foreground" />
+					</StackTile>
+					<StackTile name="AWS S3 / CF">
+						<Cloud className="size-5 text-foreground" />
+					</StackTile>
+					<StackTile name="Socket.io">
+						<Workflow className="size-5 text-foreground" />
+					</StackTile>
+					<StackTile name="OpenAI / Gemini">
+						<Sparkles className="size-5 text-foreground" />
+					</StackTile>
+					<StackTile name="Thermal Printing">
+						<Printer className="size-5 text-foreground" />
+					</StackTile>
+				</div>
+
+				{/* 4 Detailed Skill Groups matching cv.tex */}
+				<div className="mt-6 grid gap-6 md:grid-cols-2">
 					<div className="rounded-3xl border border-border/60 bg-card/70 p-6 shadow-sm backdrop-blur">
-						<h3 className="text-sm font-bold uppercase tracking-widest text-primary">
-							Backend & Infra
-						</h3>
-						<div className="mt-4 grid grid-flow-row-dense grid-cols-3 gap-3 sm:grid-cols-3">
-							<StackTile name="Node.js 22">
-								<Nodejs />
-							</StackTile>
-							<StackTile name="Firebase">
-								<Database className="size-5 text-foreground" />
-							</StackTile>
-							<StackTile name="AWS S3/CF">
-								<Cloud className="size-5 text-foreground" />
-							</StackTile>
-							<StackTile name="Socket.io">
-								<Workflow className="size-5 text-foreground" />
-							</StackTile>
-							<StackTile name="TypeScript">
-								<Typescript />
-							</StackTile>
-							<StackTile name="Jest 308">
-								<Zap className="size-5 text-foreground" />
-							</StackTile>
+						<div className="flex items-center gap-2 text-primary">
+							<Cpu className="size-4" />
+							<h3 className="text-sm font-bold uppercase tracking-widest">
+								Languages & Frontend
+							</h3>
 						</div>
-						<ul className="mt-4 space-y-1.5 text-sm text-muted-foreground">
-							<li>• Express 5 / Firebase RTDB + Admin / jose JWT</li>
-							<li>• Stripe Connect / Twilio / SES / S3 + CloudFront</li>
-							<li>• OpenAI GPT-4o-mini + Gemini / OAuth2 / webhooks</li>
-						</ul>
+						<div className="mt-4 space-y-3 text-sm leading-relaxed">
+							<div>
+								<span className="font-semibold text-primary">Languages: </span>
+								<span>
+									JavaScript (ES6+), TypeScript, Node.js, HTML5, CSS3
+								</span>
+							</div>
+							<div>
+								<span className="font-semibold text-primary">Frontend: </span>
+								<span>
+									ReactJS, Next.js, Vite, Tailwind CSS, Ant Design, Material UI, Shadcn/ui
+								</span>
+							</div>
+							<div>
+								<span className="font-semibold text-primary">Forms & Validation: </span>
+								<span>
+									React Hook Form, Zod, Type-safe state management
+								</span>
+							</div>
+						</div>
 					</div>
+
 					<div className="rounded-3xl border border-border/60 bg-card/70 p-6 shadow-sm backdrop-blur">
-						<h3 className="text-sm font-bold uppercase tracking-widest text-primary">
-							Web & Mobile
-						</h3>
-						<div className="mt-4 grid grid-cols-2 gap-3 sm:grid-cols-3">
-							<StackTile name="React 18">
-								<ReactLight className="dark:hidden" />
-								<ReactDark className="hidden dark:block" />
-							</StackTile>
-							<StackTile name="RN 0.77">
-								<ReactLight className="dark:hidden" />
-								<ReactDark className="hidden dark:block" />
-							</StackTile>
-							<StackTile name="Printing">
-								<Printer className="size-5 text-foreground" />
-							</StackTile>
+						<div className="flex items-center gap-2 text-primary">
+							<PhoneCall className="size-4" />
+							<h3 className="text-sm font-bold uppercase tracking-widest">
+								Mobile Development & Telephony
+							</h3>
 						</div>
-						<ul className="mt-4 space-y-1.5 text-sm text-muted-foreground">
-							<li>• Router 6 / Vite 8 / pnpm / Sass / TanStack Table</li>
-							<li>• Navigation 6 / CodePush / Sentry / BLE + TCP</li>
-							<li>• Recharts / hCaptcha / Algolia / i18next</li>
-						</ul>
+						<div className="mt-4 space-y-3 text-sm leading-relaxed">
+							<div>
+								<span className="font-semibold text-primary">Mobile: </span>
+								<span>
+									React Native, Expo, React Navigation, Reanimated, Native Modules (Java/Kotlin), CodePush
+								</span>
+							</div>
+							<div>
+								<span className="font-semibold text-primary">Telephony & Real-time: </span>
+								<span>
+									Twilio (Voice SDK, Conversations, Subaccounts, TwiML), WebRTC, Socket.io, WebSocket
+								</span>
+							</div>
+							<div>
+								<span className="font-semibold text-primary">Hardware Printing: </span>
+								<span>
+									Thermal Printers (Star Micronics SP700/TSP, Epson via BLE/TCP/LAN), ESC/POS
+								</span>
+							</div>
+						</div>
+					</div>
+
+					<div className="rounded-3xl border border-border/60 bg-card/70 p-6 shadow-sm backdrop-blur">
+						<div className="flex items-center gap-2 text-primary">
+							<Database className="size-4" />
+							<h3 className="text-sm font-bold uppercase tracking-widest">
+								Backend & Cloud Infrastructure
+							</h3>
+						</div>
+						<div className="mt-4 space-y-3 text-sm leading-relaxed">
+							<div>
+								<span className="font-semibold text-primary">Backend: </span>
+								<span>
+									Node.js, Express, RESTful APIs, JWT Auth, Webhooks
+								</span>
+							</div>
+							<div>
+								<span className="font-semibold text-primary">Database & Cloud: </span>
+								<span>
+									Firebase (RTDB, Admin SDK, FCM), AWS (S3, CloudFront, SES)
+								</span>
+							</div>
+							<div>
+								<span className="font-semibold text-primary">DevOps & Diagnostics: </span>
+								<span>
+									Git, GitHub Actions CI/CD, Sentry crash analytics, Flipper, Reactotron
+								</span>
+							</div>
+						</div>
+					</div>
+
+					<div className="rounded-3xl border border-border/60 bg-card/70 p-6 shadow-sm backdrop-blur">
+						<div className="flex items-center gap-2 text-primary">
+							<Layers className="size-4" />
+							<h3 className="text-sm font-bold uppercase tracking-widest">
+								APIs, AI & Integrations
+							</h3>
+						</div>
+						<div className="mt-4 space-y-3 text-sm leading-relaxed">
+							<div>
+								<span className="font-semibold text-primary">Payments: </span>
+								<span>
+									Stripe Connect (merchant onboarding, payouts, webhooks)
+								</span>
+							</div>
+							<div>
+								<span className="font-semibold text-primary">AI Workflows: </span>
+								<span>
+									OpenAI API, Google Gemini API, dual-AI auto-reply workers
+								</span>
+							</div>
+							<div>
+								<span className="font-semibold text-primary">Integrations & SEO: </span>
+								<span>
+									Google Business Profile API, OAuth2 (Google/Meta/TikTok), JSON-LD LocalBusiness SEO
+								</span>
+							</div>
+						</div>
 					</div>
 				</div>
 
+				{/* Progress Bars */}
 				<div className="mt-6 rounded-3xl border border-border/60 bg-background/70 p-6 shadow-sm backdrop-blur">
 					{SKILL_BARS.map((s) => (
 						<div key={s.label} className="mb-4 last:mb-0">
@@ -108,9 +217,7 @@ export function Skills() {
 						</div>
 					))}
 					<p className="mt-4 text-xs text-muted-foreground">
-						Also: E.164, Search Console, Canva Connect, Meta/TikTok/Google
-						OAuth, DoorDash/Postmates, QZ Tray, EAS, Metro, Flipper. Need
-						something specific?{" "}
+						Looking for something specific or customized?{" "}
 						<Button
 							asChild
 							variant="link"

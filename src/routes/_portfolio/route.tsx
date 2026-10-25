@@ -6,9 +6,7 @@ import {
 } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { SiteHeader } from "#/components/arc/blocks/site-header/site-header";
-import { HeaderAuth } from "#/components/auth/header-auth";
 import { AnimatedThemeToggle } from "#/components/ui/animated-theme-toggle";
-import authClient from "#/lib/auth/auth-client";
 import GlowCursor from "#/components/ui/glow_cursor";
 import PatternWaves from "#/components/ui/pattern_waves";
 
@@ -62,7 +60,6 @@ function PortfolioLayout() {
 	const navigate = useNavigate();
 	const location = useLocation();
 	const onHomePage = location.pathname === "/";
-	const { data: session } = authClient.useSession();
 
 	function goSection(hash: string) {
 		if (onHomePage) {
@@ -118,28 +115,16 @@ function PortfolioLayout() {
 						value: item.hash,
 						label: item.label,
 					}))}
-					secondaryAction={
-						session?.user
-							? null
-							: {
-									label: "Sign in",
-									onClick: () => {
-										void navigate({ to: "/admin/login" });
-									},
-								}
-					}
 					primaryAction={{
 						label: "Contact me",
 						onClick: () => goSection("contact"),
 					}}
-					trailing={
-						<span className="flex items-center gap-1">
-							<HeaderAuth />
-							<AnimatedThemeToggle />
-						</span>
-					}
+					trailing={<AnimatedThemeToggle />}
 					onNavigate={(destination) => {
-						if (destination.label === "Phuc Nam") {
+						if (
+							destination.label === "Van Nam Phuc" ||
+							destination.label === "Phuc Nam"
+						) {
 							if (onHomePage) {
 								window.scrollTo({ top: 0, behavior: "smooth" });
 							} else {

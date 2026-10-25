@@ -5,6 +5,10 @@ export const env = createEnv({
 	clientPrefix: "VITE_",
 	client: {
 		VITE_BASE_URL: z.url().default("http://localhost:3000"),
+		VITE_MY_EMAIL: z.email(),
+		VITE_CONTACT_PHONE: z.string(),
+		VITE_LINKEDIN_URL: z.string(),
+		VITE_GITHUB_URL: z.string(),
 	},
 	runtimeEnv: import.meta.env,
 });

@@ -1,44 +1,46 @@
 import {
+	Layers,
+	LineChart,
+	PhoneCall,
 	Printer,
-	Search,
 	Server,
-	ShoppingBag,
 	Smartphone,
 	Sparkles,
-	Users,
+	Zap,
 } from "lucide-react";
 import FlipCard from "#/components/ui/flip_card";
 import ScrollFloat from "#/components/ui/scroll_float";
 
 const MAIN_SERVICES = [
 	{
-		icon: Server,
-		title: "Backend APIs",
-		desc: "Express monolith on Firebase RTDB — ~344 REST endpoints, Socket.io realtime, Stripe, Twilio, OpenAI + Gemini.",
-		tags: ["Node 22", "Express 5", "Firebase"],
+		icon: PhoneCall,
+		title: "VoIP & Cloud Telephony",
+		desc: "Twilio Voice SDK over WebRTC, dynamic TwiML multi-member call distribution (blast ring & hunt groups), and collaborative SMS/MMS inboxes.",
+		tags: ["Twilio Voice", "WebRTC", "TwiML", "Conversations"],
 	},
 	{
-		icon: ShoppingBag,
-		title: "Merchant Dashboard",
-		desc: "44 views and 14 website templates — orders, menus, payouts, social hub, SEO/GEO, auth, docs center.",
-		tags: ["React 18", "Vite 8", "Sass"],
+		icon: Server,
+		title: "Backend & Cloud Systems",
+		desc: "Express monolith on Firebase RTDB, Stripe Connect payouts, AWS S3/CloudFront edge routing, and dual-AI review workers.",
+		tags: ["Node 22", "Express 5", "Firebase", "AWS"],
 	},
 	{
 		icon: Smartphone,
-		title: "Staff Mobile App",
-		desc: "Kanban orders and thermal printing over BLE/TCP/LAN, responsive modals, CodePush OTA, Sentry.",
-		tags: ["RN 0.77", "BLE", "CodePush"],
+		title: "Cross-Platform Mobile",
+		desc: "Production React Native & Expo applications with BLE/TCP thermal receipt printing (Star/Epson), zero-downtime CodePush OTA, and Sentry analytics.",
+		tags: ["RN 0.77", "Expo", "BLE Printing", "CodePush"],
 	},
 ];
 
 const SERVICE_LIST = [
-	{ icon: Server, label: "REST APIs & webhooks" },
-	{ icon: Sparkles, label: "AI content (GPT-4o-mini + Gemini)" },
-	{ icon: Search, label: "SEO / GEO + JSON-LD" },
-	{ icon: Users, label: "Auth, OTP & onboarding" },
-	{ icon: ShoppingBag, label: "Orders, payouts & social hub" },
-	{ icon: Printer, label: "Thermal printing (SP700/Epson/Star)" },
-	{ icon: Smartphone, label: "Responsive mobile UI" },
+	{ icon: PhoneCall, label: "Twilio VoIP calling (WebRTC) & dynamic TwiML" },
+	{ icon: Server, label: "Node.js REST APIs & webhooks" },
+	{ icon: LineChart, label: "Real-time trading & WebSocket feeds (KLineChart)" },
+	{ icon: Sparkles, label: "Dual-AI automation (OpenAI & Gemini APIs)" },
+	{ icon: Printer, label: "Thermal kitchen printing (Star SP700/TSP & Epson)" },
+	{ icon: Zap, label: "Stripe Connect marketplace payouts & billing" },
+	{ icon: Smartphone, label: "React Native & Expo cross-platform mobile apps" },
+	{ icon: Layers, label: "Zero-downtime CodePush OTA & Sentry crash analytics" },
 ];
 
 export function Services() {
@@ -48,11 +50,11 @@ export function Services() {
 				<ScrollFloat textClassName="font-bold">What I ship</ScrollFloat>
 				<div className="mt-4 grid gap-10 md:grid-cols-[0.9fr_1.1fr]">
 					<div>
-						<h3 className="text-xl font-bold">Full-stack feature owner</h3>
+						<h3 className="text-xl font-bold">Full-Stack & Mobile Architecture</h3>
 						<p className="mt-3 text-sm leading-relaxed text-muted-foreground">
-							End-to-end ownership across a 59k-LOC backend, a 246k-LOC
-							dashboard, and a 25k-LOC mobile app — integrations, realtime
-							systems, payments, printing, and migrations.
+							End-to-end product engineering spanning cloud infrastructure,
+							telephony engines, high-frequency trading platforms, and native hardware
+							drivers with 2+ years of production experience.
 						</p>
 						<ul className="mt-6 space-y-2.5 text-sm font-medium">
 							{SERVICE_LIST.map((s) => (

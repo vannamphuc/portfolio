@@ -34,12 +34,12 @@ export const Route = createRootRouteWithContext<MyRouterContext>()({
 				content: "width=device-width, initial-scale=1",
 			},
 			{
-				title: "Phuc Nam — Full-Stack Engineer",
+				title: "Van Nam Phuc — Full-Stack & Mobile Engineer",
 			},
 			{
 				name: "description",
 				content:
-					"Portfolio of Phuc Nam, full-stack feature owner on Skipli/BUTI restaurant SaaS — Node.js backend, React merchant dashboard, and React Native staff app.",
+					"Portfolio of Van Nam Phuc — Full-Stack & Mobile Engineer with 2+ years of experience across React Native, ReactJS, Node.js, Twilio VoIP, and cloud systems.",
 			},
 		],
 		links: [

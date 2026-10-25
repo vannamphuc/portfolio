@@ -7,6 +7,7 @@ export interface ExperienceProject {
 
 export interface ExperienceRole {
 	company: string;
+	companyUrl?: string;
 	title: string;
 	period: string;
 	location: string;
@@ -16,72 +17,92 @@ export interface ExperienceRole {
 	projects: ExperienceProject[];
 }
 
+export interface EducationItem {
+	institution: string;
+	degree: string;
+	period: string;
+	grade: string;
+	description: string;
+}
+
+export const EDUCATION: EducationItem[] = [
+	{
+		institution: "FPT College",
+		degree: "Associate Degree in Computer Programming",
+		period: "May 2024",
+		grade: "Graduated with Distinction (GPA: 8.5/10)",
+		description:
+			"Specialized in core software engineering, modern JavaScript/TypeScript paradigms, cross-platform mobile architectures, database design, and real-time network systems.",
+	},
+];
+
 export const EXPERIENCES: ExperienceRole[] = [
 	{
-		company: "Skipli / BUTI",
+		company: "Skipli",
+		companyUrl: "https://home.skiplinow.com/",
 		title: "Full-Stack Engineer",
-		period: "2025 — Present",
-		location: "Restaurant SaaS · US market",
+		period: "Dec 2025 — Oct 2026",
+		location: "Restaurant SaaS & Cloud Telephony · US Market",
 		summary:
-			"Feature owner across a Node.js backend monolith, a React merchant dashboard, and a React Native staff app — integrations, realtime systems, and migrations end to end.",
+			"Spearheaded cross-platform architecture across Node.js backend, React web, and React Native mobile for a US restaurant management ecosystem and business phone app (Oliny). Engineered Twilio VoIP calling (WebRTC), Google Business integrations with dual-AI auto-reply, Star/Epson thermal printing, and AWS/Stripe infrastructure.",
 		highlights: [
-			"Owned Google Business integrations: OAuth, reviews reply, Gemini → OpenAI auto-reply worker with backfill.",
-			"Built FoodMenus publish flow and ListingsHub business profiles (E.164 phone, Search Console, Yelp).",
-			"Hardened S3/CloudFront delivery: canonical redirects, edge routing, prefix deletes, SEO files.",
-			"Shipped order cutoff windows and migrated Stripe calls to axios with pnpm across the monolith.",
-			"Built ListingsHub, Google Reviews/FoodMenus UI and SEO/GEO templates on the merchant dashboard.",
-			"Rebuilt auth and onboarding with OTP, and led the React 18 / Router 6 / Vite 8 / pnpm migration.",
-			"Shipped SP700/Epson/Star thermal printing over BLE/TCP/LAN on mobile, plus responsive orders UI and OTA builds.",
+			"Spearheaded cross-platform architecture across Node.js backend, React web, and React Native mobile for a US restaurant management ecosystem and business phone app (Oliny).",
+			"Engineered Twilio VoIP calling (WebRTC), Google Business integrations with AI auto-reply, Star/Epson thermal printing, and AWS/Stripe infrastructure.",
+			"Owned end-to-end mobile release lifecycles (Google Play / App Store submissions, CodePush OTA updates) and automated CI/CD checks via GitHub Actions.",
+			"Developed Google Business OAuth2 integration, automated review syncing with dual-AI auto-reply worker (OpenAI & Gemini), AWS S3/CloudFront edge routing, and Stripe Connect payouts.",
+			"Built ListingsHub and Reviews management UI with batch AI responses; created dynamic restaurant websites featuring automated JSON-LD schema (LocalBusiness) and SEO/GEO optimization.",
+			"Engineered thermal receipt and kitchen order printing supporting Star Micronics (SP700, TSP) and Epson over BLE/TCP/LAN with print preview modals and diagnostic tools.",
+			"Configured zero-downtime CodePush OTA updates, Sentry crash analytics, and standardized order cutoff timers to streamline kitchen operations.",
+			"Architected VoIP calling with Twilio Voice SDK over WebRTC, dynamic TwiML multi-member simultaneous ring and hunt groups, and Twilio Subaccounts multi-tenant isolation.",
+			"Built shared SMS/MMS messaging workspace using Twilio Conversations API, webhook verification (validateRequest), and automated US phone number provisioning via IncomingPhoneNumbers API.",
 		],
 		stack: [
-			"Node 22",
-			"Express 5",
+			"Node.js",
+			"Express",
+			"React",
+			"Vite",
+			"React Native",
+			"Twilio Voice",
+			"WebRTC",
 			"Firebase RTDB",
-			"Socket.io",
-			"Stripe",
-			"OpenAI",
-			"React 18",
-			"Vite 8",
-			"RN 0.77",
-			"BLE",
+			"AWS (S3/CloudFront)",
+			"Stripe Connect",
+			"OpenAI & Gemini",
+			"BLE / TCP Printing",
 			"CodePush",
-			"Jest",
+			"Sentry",
 		],
 		projects: [
 			{
-				title: "ListingsHub + Reviews AI",
-				period: "Backend + Dashboard",
-				desc: "Google Business profiles, reviews reply and AI auto-reply worker — the largest feature area I owned.",
-				tags: ["OAuth", "OpenAI", "Gemini", "React 18"],
+				title: "Skipli / BUTI — Restaurant SaaS Platform",
+				period: "Dec 2025 — Oct 2026",
+				desc: "Comprehensive restaurant management SaaS ecosystem for the US market spanning a Node.js backend, multi-tenant merchant web dashboard, and kitchen/staff mobile application. Includes Google Business AI auto-reply (OpenAI & Gemini), ListingsHub, Star/Epson thermal printing (BLE/TCP/LAN), and Stripe Connect payouts.",
+				tags: ["Node.js", "React", "React Native", "Firebase RTDB", "Stripe", "OpenAI & Gemini", "BLE"],
 			},
 			{
-				title: "FoodMenus publish",
-				period: "Backend + Dashboard",
-				desc: "Menu publishing pipeline with publish modal, Search Console and Yelp wiring.",
-				tags: ["REST", "Vite", "Sass"],
-			},
-			{
-				title: "Thermal printing",
-				period: "Mobile",
-				desc: "SP700/Epson/Star receipt printing over BLE/TCP/LAN with preview, test helper and responsive orders UI.",
-				tags: ["RN 0.77", "BLE", "TCP"],
+				title: "Oliny — Cloud Business Phone & Shared Inbox",
+				period: "Dec 2025 — Oct 2026",
+				desc: "Quo-like VoIP business phone and team messaging application for US businesses. Twilio Voice SDK over WebRTC with JWT authentication, dynamic TwiML simultaneous/hunt group call distribution, Twilio Subaccounts multi-tenant isolation, automated phone number provisioning, and collaborative SMS/MMS inbox with signature verification.",
+				tags: ["React Native", "Twilio Voice", "WebRTC", "TwiML", "Node.js", "Conversations API"],
 			},
 		],
 	},
 	{
-		company: "DK Tech",
+		company: "DKTech",
+		companyUrl: "https://dk-tech.vn/",
 		title: "Mobile & Web Developer",
-		period: "Dec 2023 — 2025",
+		period: "Dec 2023 — Oct 2025",
 		location: "Ho Chi Minh City, Vietnam",
 		summary:
-			"Shipped 5+ production apps across fintech, health, and e-commerce — mobile commerce, Web3 payments, secure flows, and realtime trading.",
+			"Delivered 5+ production mobile and web applications in fintech, health, and e-commerce using React Native and TypeScript. Built cryptocurrency trading platforms featuring real-time candlestick charts (KLineChart, Highcharts) with low-latency WebSocket order book feeds. Enforced type-safe form validation standards (React Hook Form, Zod), conducted code reviews, and guided junior engineers.",
 		highlights: [
-			"Delivered 5+ production apps in fintech, health, and e-commerce domains.",
+			"Delivered 5+ production mobile and web applications in fintech, health, and e-commerce using React Native and TypeScript.",
+			"Built cryptocurrency trading platforms featuring real-time candlestick charts (KLineChart, Highcharts) with low-latency WebSocket order book feeds.",
+			"Enforced type-safe form validation standards (React Hook Form, Zod), conducted code reviews, and guided junior engineers.",
 			"Built mobile commerce features: product catalogs, carts, payment integration, and order tracking.",
 			"Integrated Web3 wallets (MetaMask, WalletConnect) for USDT payments and token reward systems.",
-			"Implemented secure flows including KYC verification, 2FA, and digital signatures.",
+			"Implemented secure flows including KYC verification, 2FA (Google Authenticator API), and digital signatures.",
 			"Created smooth UX animations with Reanimated and advanced web interactions with GSAP / Framer Motion.",
-			"Developed trading features with real-time candlestick charts using KLineChart / Highcharts and WebSocket.",
 			"Optimized SEO and achieved Lighthouse 90+ through code splitting and lazy loading.",
 		],
 		stack: [
@@ -92,26 +113,29 @@ export const EXPERIENCES: ExperienceRole[] = [
 			"TypeScript",
 			"Redux Toolkit",
 			"Reanimated",
-			"Web3",
+			"Socket.io",
 			"KLineChart",
+			"React Hook Form",
+			"Zod",
+			"Tailwind CSS",
 		],
 		projects: [
 			{
-				title: "Trade-BO",
-				period: "Apr 2024 — Oct 2025",
-				desc: "Crypto trading platform with advanced charting, real-time feeds, and Google Authenticator security.",
-				tags: ["React", "KLineChart", "Socket.io", "Redux"],
+				title: "Trade - BO",
+				period: "Dec 2023 — Oct 2025",
+				desc: "Professional cryptocurrency trading platform featuring advanced technical charting (KLineChart) for multi-timeframe analysis, real-time WebSocket feeds for live order book streaming, interactive portfolio management, and Google Authenticator 2FA security.",
+				tags: ["React", "KLineChart", "Socket.io", "Redux Toolkit", "Tailwind CSS"],
 			},
 			{
 				title: "HEWE Fitness",
 				period: "Jan 2024 — Mar 2024",
-				desc: "Gamified fitness app with GPS tracking, referral rewards, push notifications, and i18n.",
+				desc: "Gamified fitness application with GPS tracking, referral reward systems, push notifications, and multi-language support (i18n).",
 				tags: ["React Native", "Reanimated", "Maps", "Notifee"],
 			},
 			{
 				title: "HeweCard",
 				period: "Dec 2023 — Jan 2024",
-				desc: "Digital card platform with Web3 USDT payments, KYC flow, referral tree, and CodePush updates.",
+				desc: "Digital card platform with Web3 USDT payments, KYC verification flow, referral tree hierarchy, and zero-downtime CodePush updates.",
 				tags: ["React Native", "Web3", "CodePush"],
 			},
 		],
