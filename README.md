@@ -1,274 +1,118 @@
-Welcome to your new TanStack Start app!
+# 🚀 Van Nam Phuc — Personal Portfolio
 
-# Getting Started
+A modern, high-performance developer portfolio built with **TanStack Start**, **React 19**, **Tailwind CSS v4**, and **Nitro**.
 
-To run this application:
+Featuring smooth animations, interactive particle fields, an optimized project showcase with an interactive image lightbox, and direct contact email dispatching via server-side Nodemailer.
+
+---
+
+## ✨ Features
+
+- **⚡ Fullstack SSR**: Built with [TanStack Start](https://tanstack.com/start) & [Nitro](https://nitro.unjs.io/) for high-speed SSR, routing, and Vercel edge/serverless compatibility.
+- **🎨 Modern Dark Aesthetic**: Tailored sleek dark theme with fluid typography, glassmorphism cards, and interactive 2D canvas particle fields.
+- **🖼️ Interactive Projects Gallery**:
+  - Unpic responsive image optimization (`@unpic/react`).
+  - High-res Lightbox modal viewer supporting multi-image galleries with smooth keyboard navigation (`Esc`, `←`, `→`).
+- **📬 Serverless Contact Form**:
+  - Powered by TanStack Start Server Functions (`createServerFn`).
+  - Sends direct email notifications via SMTP (Gmail, Resend, or Brevo) without third-party redirects or client-side secret exposure.
+- **🛠️ Ultra-fast Tooling**:
+  - Bundled by [Vite](https://vitejs.dev/).
+  - Formatted and linted with [Biome](https://biomejs.dev/).
+
+---
+
+## 🛠️ Tech Stack
+
+| Layer | Technologies |
+|---|---|
+| **Framework** | [TanStack Start](https://tanstack.com/start) (React 19, TypeScript) |
+| **Server Engine** | [Nitro](https://nitro.unjs.io/) |
+| **Styling** | [Tailwind CSS v4](https://tailwindcss.com/), Base UI, Lucide Icons |
+| **Animations** | [Motion](https://motion.dev/) (Framer Motion) |
+| **Images** | [@unpic/react](https://unpic.pics/img/react/) |
+| **Mail Transport** | [Nodemailer](https://nodemailer.com/) (Server Action) |
+| **Linter & Formatter** | [Biome](https://biomejs.dev/) |
+
+---
+
+## 🏁 Getting Started
+
+### 1. Prerequisites
+
+- [Node.js](https://nodejs.org/) (v20+ recommended)
+- [pnpm](https://pnpm.io/) (`corepack enable pnpm` or `npm i -g pnpm`)
+
+### 2. Installation
+
+Clone this repository and install dependencies:
 
 ```bash
+git clone https://github.com/vannamphuc/portfolio.git
+cd portfolio
 pnpm install
+```
+
+### 3. Environment Configuration
+
+Copy the example `.env` file:
+
+```bash
+cp .env.example .env
+```
+
+Open `.env` and fill in your contact information and SMTP credentials:
+
+```ini
+# Public
+VITE_BASE_URL=http://localhost:3000
+VITE_MY_EMAIL=your_email@gmail.com
+
+# SMTP Server Action (e.g. Gmail App Password)
+SMTP_HOST=smtp.gmail.com
+SMTP_PORT=465
+SMTP_USER=your_email@gmail.com
+SMTP_PASS=xxxx xxxx xxxx xxxx
+SMTP_FROM="Portfolio Contact" <your_email@gmail.com>
+```
+
+> **Note**: For Gmail, generate a 16-character **App Password** from [Google Account Security](https://myaccount.google.com/apppasswords) (requires 2FA enabled).
+
+### 4. Running Locally
+
+Start the development server on `http://localhost:3000`:
+
+```bash
 pnpm dev
 ```
 
-# Building For Production
+---
 
-To build this application for production:
+## 📜 Available Scripts
 
-```bash
-pnpm build
-```
+| Command | Description |
+|---|---|
+| `pnpm dev` | Starts the Vite + TanStack Start dev server at port `3000` |
+| `pnpm build` | Compiles client assets and generates the Nitro SSR server bundle |
+| `pnpm preview` | Locally previews the production build |
+| `pnpm format` | Formats codebase using Biome (`biome format --write`) |
+| `pnpm lint` | Runs Biome linter with auto-fixing (`biome lint --write`) |
+| `pnpm check` | Full code quality check & auto-fix (`format`, `lint`, and `organizeImports`) |
 
-## Styling
+---
 
-This project uses [Tailwind CSS](https://tailwindcss.com/) for styling.
+## 🚀 Deployment (Vercel)
 
-### Removing Tailwind CSS
+This project is pre-configured with Nitro for instant Vercel deployment:
 
-If you prefer not to use Tailwind CSS:
+1. Push your code to your GitHub repository.
+2. Import the repository in [Vercel](https://vercel.com).
+3. The framework is preset to `TanStack Start` via [`vercel.json`](file:///d:/Code/portfolio/vercel.json).
+4. Add the environment variables from your `.env` (`SMTP_HOST`, `SMTP_PORT`, `SMTP_USER`, `SMTP_PASS`, `SMTP_FROM`, `VITE_MY_EMAIL`) in the Vercel Project Settings.
+5. Hit **Deploy**!
 
-1. Remove the demo pages in `src/routes/demo/`
-2. Replace the Tailwind import in `src/styles.css` with your own styles
-3. Remove `tailwindcss()` from the plugins array in `vite.config.ts`
-4. Remove `@tailwindcss/vite` and `tailwindcss` from `package.json`
+---
 
-## Linting & Formatting
+## 📄 License
 
-This project uses [Biome](https://biomejs.dev/) for linting and formatting. The following scripts are available:
-
-
-```bash
-pnpm lint
-pnpm format
-pnpm check
-```
-
-
-# Paraglide i18n
-
-This add-on wires up ParaglideJS for localized routing and message formatting.
-
-- Messages live in `project.inlang/messages`.
-- URLs are localized through the Paraglide Vite plugin and router `rewrite` hooks.
-- Run the dev server or build to regenerate the `src/paraglide` outputs.
-
-
-## Shadcn
-
-Add components using the latest version of [Shadcn](https://ui.shadcn.com/).
-
-```bash
-pnpm dlx shadcn@latest add button
-```
-
-
-## Setting up Neon
-
-When running the `dev` command, `vite-plugin-neon-new` will identify there is not a database setup. It will then create and seed a claimable database.
-
-It is the same process as [Neon Launchpad](https://neon.new).
-
-> [!IMPORTANT]  
-> Claimable databases expire in 72 hours.
-
-
-## T3Env
-
-- You can use T3Env to add type safety to your environment variables.
-- Add Environment variables to the `src/env.mjs` file.
-- Use the environment variables in your code.
-
-### Usage
-
-```ts
-import { env } from "#/env";
-
-console.log(env.VITE_APP_TITLE);
-```
-
-
-
-
-
-## Setting up Better Auth
-
-1. Generate and set the `BETTER_AUTH_SECRET` environment variable in your `.env.local`:
-
-   ```bash
-   pnpm dlx @better-auth/cli secret
-   ```
-
-2. Visit the [Better Auth documentation](https://www.better-auth.com) to unlock the full potential of authentication in your app.
-
-### Adding a Database (Optional)
-
-Better Auth can work in stateless mode, but to persist user data, add a database:
-
-```typescript
-// src/lib/auth.ts
-import { betterAuth } from "better-auth";
-import { Pool } from "pg";
-
-export const auth = betterAuth({
-  database: new Pool({
-    connectionString: process.env.DATABASE_URL,
-  }),
-  // ... rest of config
-});
-```
-
-Then run migrations:
-
-```bash
-pnpm dlx @better-auth/cli migrate
-```
-
-
-
-## Routing
-
-This project uses [TanStack Router](https://tanstack.com/router) with file-based routing. Routes are managed as files in `src/routes`.
-
-### Adding A Route
-
-To add a new route to your application just add a new file in the `./src/routes` directory.
-
-TanStack will automatically generate the content of the route file for you.
-
-Now that you have two routes you can use a `Link` component to navigate between them.
-
-### Adding Links
-
-To use SPA (Single Page Application) navigation you will need to import the `Link` component from `@tanstack/react-router`.
-
-```tsx
-import { Link } from "@tanstack/react-router";
-```
-
-Then anywhere in your JSX you can use it like so:
-
-```tsx
-<Link to="/about">About</Link>
-```
-
-This will create a link that will navigate to the `/about` route.
-
-More information on the `Link` component can be found in the [Link documentation](https://tanstack.com/router/v1/docs/framework/react/api/router/linkComponent).
-
-### Using A Layout
-
-In the File Based Routing setup the layout is located in `src/routes/__root.tsx`. Anything you add to the root route will appear in all the routes. The route content will appear in the JSX where you render `{children}` in the `shellComponent`.
-
-Here is an example layout that includes a header:
-
-```tsx
-import { HeadContent, Scripts, createRootRoute } from '@tanstack/react-router'
-
-export const Route = createRootRoute({
-  head: () => ({
-    meta: [
-      { charSet: 'utf-8' },
-      { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { title: 'My App' },
-    ],
-  }),
-  shellComponent: ({ children }) => (
-    <html lang="en">
-      <head>
-        <HeadContent />
-      </head>
-      <body>
-        <header>
-          <nav>
-            <Link to="/">Home</Link>
-            <Link to="/about">About</Link>
-          </nav>
-        </header>
-        {children}
-        <Scripts />
-      </body>
-    </html>
-  ),
-})
-```
-
-More information on layouts can be found in the [Layouts documentation](https://tanstack.com/router/latest/docs/framework/react/guide/routing-concepts#layouts).
-
-## Server Functions
-
-TanStack Start provides server functions that allow you to write server-side code that seamlessly integrates with your client components.
-
-```tsx
-import { createServerFn } from '@tanstack/react-start'
-
-const getServerTime = createServerFn({
-  method: 'GET',
-}).handler(async () => {
-  return new Date().toISOString()
-})
-
-// Use in a component
-function MyComponent() {
-  const [time, setTime] = useState('')
-  
-  useEffect(() => {
-    getServerTime().then(setTime)
-  }, [])
-  
-  return <div>Server time: {time}</div>
-}
-```
-
-## API Routes
-
-You can create API routes by using the `server` property in your route definitions:
-
-```tsx
-import { createFileRoute } from '@tanstack/react-router'
-import { json } from '@tanstack/react-start'
-
-export const Route = createFileRoute('/api/hello')({
-  server: {
-    handlers: {
-      GET: () => json({ message: 'Hello, World!' }),
-    },
-  },
-})
-```
-
-## Data Fetching
-
-There are multiple ways to fetch data in your application. You can use TanStack Query to fetch data from a server. But you can also use the `loader` functionality built into TanStack Router to load the data for a route before it's rendered.
-
-For example:
-
-```tsx
-import { createFileRoute } from '@tanstack/react-router'
-
-export const Route = createFileRoute('/people')({
-  loader: async () => {
-    const response = await fetch('https://swapi.dev/api/people')
-    return response.json()
-  },
-  component: PeopleComponent,
-})
-
-function PeopleComponent() {
-  const data = Route.useLoaderData()
-  return (
-    <ul>
-      {data.results.map((person) => (
-        <li key={person.name}>{person.name}</li>
-      ))}
-    </ul>
-  )
-}
-```
-
-Loaders simplify your data fetching logic dramatically. Check out more information in the [Loader documentation](https://tanstack.com/router/latest/docs/framework/react/guide/data-loading#loader-parameters).
-
-
-
-# Learn More
-
-You can learn more about all of the offerings from TanStack in the [TanStack documentation](https://tanstack.com).
-
-For TanStack Start specific documentation, visit [TanStack Start](https://tanstack.com/start).
+Created by **Văn Nam Phúc**. Open-sourced under the [MIT License](LICENSE).
