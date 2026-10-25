@@ -1,4 +1,4 @@
-# 🚀 Van Nam Phuc — Personal Portfolio
+# Van Nam Phuc — Personal Portfolio
 
 A modern, high-performance developer portfolio built with **TanStack Start**, **React 19**, **Tailwind CSS v4**, and **Nitro**.
 
@@ -6,23 +6,23 @@ Featuring smooth animations, interactive particle fields, an optimized project s
 
 ---
 
-## ✨ Features
+## Features
 
-- **⚡ Fullstack SSR**: Built with [TanStack Start](https://tanstack.com/start) & [Nitro](https://nitro.unjs.io/) for high-speed SSR, routing, and Vercel edge/serverless compatibility.
-- **🎨 Modern Dark Aesthetic**: Tailored sleek dark theme with fluid typography, glassmorphism cards, and interactive 2D canvas particle fields.
-- **🖼️ Interactive Projects Gallery**:
+- **Fullstack SSR**: Built with [TanStack Start](https://tanstack.com/start) & [Nitro](https://nitro.unjs.io/) for high-speed SSR, routing, and Vercel edge/serverless compatibility.
+- **Modern Dark Aesthetic**: Tailored sleek dark theme with fluid typography, glassmorphism cards, and interactive 2D canvas particle fields.
+- **Interactive Projects Gallery**:
   - Unpic responsive image optimization (`@unpic/react`).
   - High-res Lightbox modal viewer supporting multi-image galleries with smooth keyboard navigation (`Esc`, `←`, `→`).
-- **📬 Serverless Contact Form**:
+- **Serverless Contact Form**:
   - Powered by TanStack Start Server Functions (`createServerFn`).
   - Sends direct email notifications via SMTP (Gmail, Resend, or Brevo) without third-party redirects or client-side secret exposure.
-- **🛠️ Ultra-fast Tooling**:
+- **Ultra-fast Tooling**:
   - Bundled by [Vite](https://vitejs.dev/).
   - Formatted and linted with [Biome](https://biomejs.dev/).
 
 ---
 
-## 🛠️ Tech Stack
+## Tech Stack
 
 | Layer | Technologies |
 |---|---|
@@ -36,7 +36,7 @@ Featuring smooth animations, interactive particle fields, an optimized project s
 
 ---
 
-## 🏁 Getting Started
+## Getting Started
 
 ### 1. Prerequisites
 
@@ -88,7 +88,7 @@ pnpm dev
 
 ---
 
-## 📜 Available Scripts
+## Available Scripts
 
 | Command | Description |
 |---|---|
@@ -101,7 +101,7 @@ pnpm dev
 
 ---
 
-## 🚀 Deployment (Vercel)
+## Deployment (Vercel)
 
 This project is pre-configured with Nitro for instant Vercel deployment:
 
@@ -113,6 +113,6 @@ This project is pre-configured with Nitro for instant Vercel deployment:
 
 ---
 
-## 📄 License
+## License
 
 Created by **Văn Nam Phúc**. Open-sourced under the [MIT License](LICENSE).
