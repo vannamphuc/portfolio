@@ -39,7 +39,7 @@ export const Route = createRootRouteWithContext<MyRouterContext>()({
 			{
 				name: "description",
 				content:
-					"Portfolio of Van Nam Phuc — Full-Stack & Mobile Engineer with 2+ years of experience across React Native, ReactJS, Node.js, Twilio VoIP, and cloud systems.",
+					"Portfolio of Van Nam Phuc — Full-Stack & Mobile Engineer with 3 years of experience across React Native, ReactJS, Node.js, Twilio VoIP, and cloud systems.",
 			},
 		],
 		links: [

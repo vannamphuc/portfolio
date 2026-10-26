@@ -62,7 +62,7 @@ export function Services() {
 						<p className="mt-3 text-sm leading-relaxed text-muted-foreground">
 							End-to-end product engineering spanning cloud infrastructure,
 							telephony engines, high-frequency trading platforms, and native
-							hardware drivers with 2+ years of production experience.
+							hardware drivers with 3 years of production experience.
 						</p>
 						<ul className="mt-6 space-y-2.5 text-sm font-medium">
 							{SERVICE_LIST.map((s) => (

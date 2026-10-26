@@ -17,7 +17,7 @@ export function About() {
 				<div>
 					<div className="space-y-4 text-base leading-relaxed text-foreground sm:text-lg">
 						<p>
-							Full-Stack & Mobile Engineer with 2+ years of experience
+							Full-Stack & Mobile Engineer with 3 years of experience
 							architecting and shipping production systems across React Native,
 							ReactJS, and Node.js.
 						</p>
