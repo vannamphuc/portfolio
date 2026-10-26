@@ -38,7 +38,7 @@ export function CardProfile({
 	email = "phucnamvan@gmail.com",
 	avatarUrl = Me,
 	stats = [
-		{ label: "Experience", value: "2+ Yrs" },
+		{ label: "Experience", value: "3 Yrs" },
 		{ label: "Production Apps", value: "5+" },
 		{ label: "FPT College", value: "8.5 GPA" },
 	],
