@@ -44,7 +44,11 @@ const WORKS: WorkProject[] = [
 		src: "/works/trade/trade.png",
 		title: "Trade - BO Platform",
 		subtitle: "Crypto trading • KLineChart • Live WebSocket order books",
-		images: ["/works/trade/trade.png"],
+		images: [
+			"/works/trade/trade.png",
+			"/works/trade/amaxbot.png",
+			"/works/trade/mxtrade.png",
+		],
 	},
 	{
 		src: "/works/review_ai/google_reviews.png",
