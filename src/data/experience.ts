@@ -170,7 +170,7 @@ export const EXPERIENCES: ExperienceRole[] = [
 					"Redux Toolkit",
 					"Tailwind CSS",
 				],
-				image: "/works/trade/trade.webp",
+				image: "/works/trade/mxtrade.webp",
 				links: [
 					{ label: "Trade-BO", url: "https://bitnextex.net/" },
 					{ label: "HEWE Website", url: "https://www.hewe.io/" },

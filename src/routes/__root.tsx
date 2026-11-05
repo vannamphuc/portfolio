@@ -12,8 +12,8 @@ import appCss from "../styles.css?url";
 
 const Devtools = import.meta.env.DEV
 	? lazy(() =>
-		import("../integrations/devtools").then((m) => ({ default: m.Devtools })),
-	)
+			import("../integrations/devtools").then((m) => ({ default: m.Devtools })),
+		)
 	: null;
 
 interface MyRouterContext {

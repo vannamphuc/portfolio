@@ -48,13 +48,13 @@ const WORKS: WorkProject[] = [
 		links: [{ label: "Skipli Website", url: "https://www.skiplinow.com/" }],
 	},
 	{
-		src: "/works/trade/trade.webp",
+		src: "/works/trade/mxtrade.webp",
 		title: "Trade - BO Platform",
 		subtitle: "Crypto trading • KLineChart • Live WebSocket order books",
 		images: [
+			"/works/trade/mxtrade.webp",
 			"/works/trade/trade.webp",
 			"/works/trade/amaxbot.webp",
-			"/works/trade/mxtrade.webp",
 		],
 		links: [
 			{ label: "Trade-BO", url: "https://bitnextex.net/" },
