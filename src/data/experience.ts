@@ -202,6 +202,10 @@ export const EXPERIENCES: ExperienceRole[] = [
 				image: "/works/trade/hewe.webp",
 				links: [
 					{
+						label: "App Store",
+						url: "https://apps.apple.com/vn/app/hewe/id1645493575",
+					},
+					{
 						label: "APKPure",
 						url: "https://apkpure.com/hewe/com.heweapptoken",
 					},
