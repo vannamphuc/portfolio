@@ -12,8 +12,8 @@ import appCss from "../styles.css?url";
 
 const Devtools = import.meta.env.DEV
 	? lazy(() =>
-			import("../integrations/devtools").then((m) => ({ default: m.Devtools })),
-		)
+		import("../integrations/devtools").then((m) => ({ default: m.Devtools })),
+	)
 	: null;
 
 interface MyRouterContext {
@@ -120,8 +120,8 @@ export const Route = createRootRouteWithContext<MyRouterContext>()({
 			},
 			{
 				rel: "icon",
-				type: "image/svg+xml",
-				href: "/favicon.svg",
+				type: "image/x-icon",
+				href: "/favicon.ico",
 			},
 			{
 				rel: "apple-touch-icon",
