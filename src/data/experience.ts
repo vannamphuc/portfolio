@@ -172,7 +172,7 @@ export const EXPERIENCES: ExperienceRole[] = [
 				],
 				image: "/works/trade/mxtrade.webp",
 				links: [
-					{ label: "Trade-BO", url: "https://bitnextex.net/" },
+					{ label: "Trade-BO", url: "https://bxtrade.net/" },
 					{ label: "HEWE Website", url: "https://www.hewe.io/" },
 				],
 				metrics: ["20+ deployments", "~200 peak users"],
@@ -182,6 +182,7 @@ export const EXPERIENCES: ExperienceRole[] = [
 				period: "Dec 2023 — Oct 2025",
 				desc: "Mobile product for digital card management and Web3 payments. Integrated USDT wallet purchases through HyperPayOS, CVV/PIN access, KYC identity checks, digital signatures, referrals, and multilingual UI.",
 				tags: ["React Native", "HyperPayOS", "USDT", "KYC", "CodePush"],
+				image: "/works/trade/ameritec.webp",
 				links: [
 					{
 						label: "App Store",
@@ -198,6 +199,7 @@ export const EXPERIENCES: ExperienceRole[] = [
 				period: "Jan 2024 — Mar 2024",
 				desc: "Gamified fitness application with GPS/step and route tracking, background monitoring, push notifications, token rewards, and referral flows.",
 				tags: ["React Native", "Reanimated", "Maps", "Notifee"],
+				image: "/works/trade/hewe.webp",
 				links: [
 					{
 						label: "APKPure",

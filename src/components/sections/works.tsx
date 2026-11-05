@@ -57,7 +57,7 @@ const WORKS: WorkProject[] = [
 			"/works/trade/amaxbot.webp",
 		],
 		links: [
-			{ label: "Trade-BO", url: "https://bitnextex.net/" },
+			{ label: "Trade-BO", url: "https://bxtrade.net/" },
 			{ label: "HEWE Website", url: "https://www.hewe.io/" },
 		],
 	},
