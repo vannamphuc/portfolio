@@ -1,5 +1,5 @@
 import { Link } from "@tanstack/react-router";
-import { ArrowRight, Briefcase, MapPin } from "lucide-react";
+import { ArrowRight, ArrowUpRight, Briefcase, MapPin } from "lucide-react";
 import { Badge } from "#/components/ui/badge";
 import { Button } from "#/components/ui/button";
 import ScrollFloat from "#/components/ui/scroll_float";
@@ -41,6 +41,28 @@ export function Experience() {
 							<p className="mt-4 flex-1 text-sm leading-relaxed text-muted-foreground">
 								{role.summary}
 							</p>
+							<ul className="mt-4 space-y-1.5">
+								{role.projects.map((p) => (
+									<li
+										key={p.title}
+										className="flex flex-wrap items-center gap-x-2 gap-y-1 text-sm"
+									>
+										<span className="font-semibold">{p.title}</span>
+										{p.links?.map((l) => (
+											<a
+												key={l.url}
+												href={l.url}
+												target="_blank"
+												rel="noreferrer noopener"
+												className="inline-flex items-center gap-0.5 text-xs font-medium text-primary hover:underline"
+											>
+												{l.label}
+												<ArrowUpRight className="size-3" />
+											</a>
+										))}
+									</li>
+								))}
+							</ul>
 							<div className="mt-4 flex flex-wrap gap-1.5">
 								{role.stack.slice(0, 8).map((t) => (
 									<Badge

@@ -37,7 +37,7 @@ const SERVICE_LIST = [
 	{ icon: Server, label: "Node.js REST APIs & webhooks" },
 	{
 		icon: LineChart,
-		label: "Real-time trading & WebSocket feeds (KLineChart)",
+		label: "Real-time trading & white-label cores (KLineChart/Highcharts)",
 	},
 	{ icon: Sparkles, label: "Dual-AI automation (OpenAI & Gemini APIs)" },
 	{ icon: Printer, label: "Thermal kitchen printing (Star SP700/TSP & Epson)" },

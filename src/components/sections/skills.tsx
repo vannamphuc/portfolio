@@ -113,9 +113,21 @@ export function Skills() {
 							</div>
 							<div>
 								<span className="font-semibold text-primary">
+									State & Data:{" "}
+								</span>
+								<span>
+									Redux Toolkit, Zustand, TanStack Query, Axios, i18next
+								</span>
+							</div>
+							<div>
+								<span className="font-semibold text-primary">
 									Forms & Validation:{" "}
 								</span>
 								<span>React Hook Form, Zod, Type-safe state management</span>
+							</div>
+							<div>
+								<span className="font-semibold text-primary">Charts: </span>
+								<span>KLineChart, Highcharts</span>
 							</div>
 						</div>
 					</div>
@@ -132,7 +144,7 @@ export function Skills() {
 								<span className="font-semibold text-primary">Mobile: </span>
 								<span>
 									React Native, Expo, React Navigation, Reanimated, Native
-									Modules (Java/Kotlin), CodePush
+									Modules (Java/Kotlin), Maps/Geolocation, Notifee, CodePush
 								</span>
 							</div>
 							<div>
@@ -166,7 +178,10 @@ export function Skills() {
 						<div className="mt-4 space-y-3 text-sm leading-relaxed">
 							<div>
 								<span className="font-semibold text-primary">Backend: </span>
-								<span>Node.js, Express, RESTful APIs, JWT Auth, Webhooks</span>
+								<span>
+									Node.js, Express, RESTful APIs, JWT Auth, OAuth2, webhook
+									signature verification
+								</span>
 							</div>
 							<div>
 								<span className="font-semibold text-primary">
@@ -181,9 +196,15 @@ export function Skills() {
 									DevOps & Diagnostics:{" "}
 								</span>
 								<span>
-									Git, GitHub Actions CI/CD, Sentry crash analytics, Flipper,
-									Reactotron
+									Git, GitHub Actions CI/CD, Sentry crash analytics, Google Play
+									/ App Store releases, Flipper, Reactotron
 								</span>
+							</div>
+							<div>
+								<span className="font-semibold text-primary">
+									Also familiar with:{" "}
+								</span>
+								<span>Docker, Redis, RabbitMQ</span>
 							</div>
 						</div>
 					</div>
@@ -199,8 +220,13 @@ export function Skills() {
 							<div>
 								<span className="font-semibold text-primary">Payments: </span>
 								<span>
-									Stripe Connect (merchant onboarding, payouts, webhooks)
+									Stripe Connect (merchant onboarding, payouts, webhooks),
+									Web3Modal, USDT wallet payments, HyperPayOS
 								</span>
+							</div>
+							<div>
+								<span className="font-semibold text-primary">Security: </span>
+								<span>KYC, 2FA, digital signatures</span>
 							</div>
 							<div>
 								<span className="font-semibold text-primary">

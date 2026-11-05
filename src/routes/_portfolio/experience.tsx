@@ -1,11 +1,14 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
+import { Image } from "@unpic/react";
 import {
 	ArrowLeft,
+	ArrowUpRight,
 	Award,
 	Briefcase,
 	ExternalLink,
 	GraduationCap,
 	MapPin,
+	TrendingUp,
 } from "lucide-react";
 import { Badge } from "#/components/ui/badge";
 import { Button } from "#/components/ui/button";
@@ -112,25 +115,81 @@ function ExperiencePage() {
 							{role.projects.map((p) => (
 								<article
 									key={p.title}
-									className="flex flex-col rounded-3xl border border-border/60 bg-background/70 p-6 shadow-sm backdrop-blur transition-all hover:-translate-y-0.5 hover:shadow-lg"
+									className="flex flex-col overflow-hidden rounded-3xl border border-border/60 bg-background/70 shadow-sm backdrop-blur transition-all hover:-translate-y-0.5 hover:shadow-lg"
 								>
-									<p className="font-mono text-[11px] uppercase tracking-widest text-primary">
-										{p.period}
-									</p>
-									<h3 className="mt-2 text-lg font-bold">{p.title}</h3>
-									<p className="mt-2 flex-1 text-sm leading-relaxed text-muted-foreground">
-										{p.desc}
-									</p>
-									<div className="mt-4 flex flex-wrap gap-1.5">
-										{p.tags.map((t) => (
-											<Badge
-												key={t}
-												variant="outline"
-												className="text-[11px] font-medium"
-											>
-												{t}
-											</Badge>
-										))}
+									{p.image && (
+										<div className="relative overflow-hidden border-b border-border/60">
+											<Image
+												src={p.image}
+												alt={`${p.title} screenshot`}
+												width={800}
+												height={450}
+												layout="constrained"
+												loading="lazy"
+												className="aspect-video w-full object-cover object-top transition-transform duration-500 hover:scale-105"
+											/>
+											{p.status && (
+												<span className="absolute left-3 top-3 rounded-full border border-border bg-background/90 px-2.5 py-1 font-mono text-[11px] font-semibold backdrop-blur">
+													{p.status}
+												</span>
+											)}
+										</div>
+									)}
+									<div className="flex flex-1 flex-col p-6">
+										<div className="flex flex-wrap items-center justify-between gap-2">
+											<p className="font-mono text-[11px] uppercase tracking-widest text-primary">
+												{p.period}
+											</p>
+											{!p.image && p.status && (
+												<span className="rounded-full border border-border px-2.5 py-1 font-mono text-[11px] font-semibold">
+													{p.status}
+												</span>
+											)}
+										</div>
+										<h3 className="mt-2 text-lg font-bold">{p.title}</h3>
+										{p.metrics && p.metrics.length > 0 && (
+											<div className="mt-3 flex flex-wrap gap-1.5">
+												{p.metrics.map((m) => (
+													<span
+														key={m}
+														className="inline-flex items-center gap-1 rounded-full bg-primary/10 px-2.5 py-1 text-xs font-semibold text-primary"
+													>
+														<TrendingUp className="size-3" />
+														{m}
+													</span>
+												))}
+											</div>
+										)}
+										<p className="mt-2 flex-1 text-sm leading-relaxed text-muted-foreground">
+											{p.desc}
+										</p>
+										{p.links && p.links.length > 0 && (
+											<div className="mt-4 flex flex-wrap gap-2">
+												{p.links.map((l) => (
+													<a
+														key={l.url}
+														href={l.url}
+														target="_blank"
+														rel="noreferrer noopener"
+														className="inline-flex items-center gap-1 rounded-lg border border-border bg-muted/40 px-2.5 py-1.5 text-xs font-semibold transition-colors hover:border-primary hover:bg-primary/10 hover:text-primary"
+													>
+														{l.label}
+														<ArrowUpRight className="size-3.5" />
+													</a>
+												))}
+											</div>
+										)}
+										<div className="mt-4 flex flex-wrap gap-1.5">
+											{p.tags.map((t) => (
+												<Badge
+													key={t}
+													variant="outline"
+													className="text-[11px] font-medium"
+												>
+													{t}
+												</Badge>
+											))}
+										</div>
 									</div>
 								</article>
 							))}

@@ -8,7 +8,7 @@ import { SMOOTH_SCROLL } from "./shared";
 
 const STATS = [
 	["3+", "Years Experience"],
-	["3+", "Production Repos"],
+	["20+", "White-Label Deploys"],
 	["5+", "Apps Shipped"],
 ] as const;
 

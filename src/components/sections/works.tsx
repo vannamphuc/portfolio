@@ -13,11 +13,17 @@ import FlexCarousel from "#/components/ui/flex_carousel";
 import ScrollFloat from "#/components/ui/scroll_float";
 import { SMOOTH_SCROLL } from "./shared";
 
+interface WorkLink {
+	label: string;
+	url: string;
+}
+
 interface WorkProject {
 	src: string;
 	title: string;
 	subtitle: string;
 	images: string[];
+	links?: WorkLink[];
 }
 
 const WORKS: WorkProject[] = [
@@ -39,6 +45,7 @@ const WORKS: WorkProject[] = [
 			"/works/skipli_buti/marketplace.webp",
 			"/works/skipli_buti/create_ordering.webp",
 		],
+		links: [{ label: "Skipli Website", url: "https://www.skiplinow.com/" }],
 	},
 	{
 		src: "/works/trade/trade.webp",
@@ -48,6 +55,10 @@ const WORKS: WorkProject[] = [
 			"/works/trade/trade.webp",
 			"/works/trade/amaxbot.webp",
 			"/works/trade/mxtrade.webp",
+		],
+		links: [
+			{ label: "Trade-BO", url: "https://bitnextex.net/" },
+			{ label: "HEWE Website", url: "https://www.hewe.io/" },
 		],
 	},
 	{
@@ -191,6 +202,23 @@ export function Works() {
 								<p className="truncate text-xs text-muted-foreground sm:text-sm">
 									{activeProject.subtitle}
 								</p>
+								{activeProject.links && activeProject.links.length > 0 && (
+									<div className="mt-2 flex flex-wrap gap-1.5">
+										{activeProject.links.map((l) => (
+											<a
+												key={l.url}
+												href={l.url}
+												target="_blank"
+												rel="noreferrer noopener"
+												onClick={(e) => e.stopPropagation()}
+												className="inline-flex items-center gap-1 rounded-lg border border-border bg-muted/40 px-2 py-1 text-xs font-semibold transition-colors hover:border-primary hover:bg-primary/10 hover:text-primary"
+											>
+												{l.label}
+												<ArrowUpRight className="size-3" />
+											</a>
+										))}
+									</div>
+								)}
 							</div>
 
 							<button
