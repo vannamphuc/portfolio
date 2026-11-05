@@ -6,7 +6,11 @@ export const env = createEnv({
 	client: {
 		VITE_BASE_URL: z.url().default("http://localhost:3000"),
 		VITE_MY_EMAIL: z.email(),
-		VITE_CONTACT_PHONE: z.string().regex(/^0\d{9}$/),
+		VITE_CONTACT_PHONE: z
+			.string()
+			.refine((v) => /^0\d{9}$/.test(v.replaceAll(" ", "")), {
+				message: "Invalid Vietnamese phone number",
+			}),
 		VITE_LINKEDIN_URL: z.url().refine((value) => value.startsWith("https://")),
 		VITE_GITHUB_URL: z.url().refine((value) => value.startsWith("https://")),
 	},

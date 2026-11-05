@@ -2,23 +2,25 @@
 
 A modern, high-performance developer portfolio built with **TanStack Start**, **React 19**, **Tailwind CSS v4**, and **Nitro**.
 
-Featuring smooth animations, interactive particle fields, an optimized project showcase with an interactive image lightbox, and direct contact email dispatching via server-side Nodemailer.
+Featuring smooth animations, interactive WebGL wave backgrounds, an optimized project showcase with an interactive image lightbox, and direct contact email dispatching via server-side Nodemailer.
 
 ---
 
 ## Features
 
 - **Fullstack SSR**: Built with [TanStack Start](https://tanstack.com/start) & [Nitro](https://nitro.unjs.io/) for high-speed SSR, routing, and Vercel edge/serverless compatibility.
-- **Modern Dark Aesthetic**: Tailored sleek dark theme with fluid typography, glassmorphism cards, and interactive 2D canvas particle fields.
+- **Warm Light/Dark Aesthetic**: Beige/olive theme pair with fluid typography, glassmorphism cards, theme toggle with FOUC-free hydration, plus interactive WebGL waves (`ogl`) and a glow cursor trail.
 - **Interactive Projects Gallery**:
-  - Unpic responsive image optimization (`@unpic/react`).
+  - WebP-optimized screenshots with Unpic responsive image optimization (`@unpic/react`).
   - High-res Lightbox modal viewer supporting multi-image galleries with smooth keyboard navigation (`Esc`, `←`, `→`).
 - **Serverless Contact Form**:
-  - Powered by TanStack Start Server Functions (`createServerFn`).
+  - Powered by TanStack Start Server Functions (`createServerFn`) with Zod validation.
   - Sends direct email notifications via SMTP (Gmail, Resend, or Brevo) without third-party redirects or client-side secret exposure.
+  - Honeypot trap + per-IP rate limiting for spam protection.
+- **SEO Ready**: Open Graph / Twitter cards, JSON-LD person schema, canonical links, and build-time `sitemap.xml` + `robots.txt`.
 - **Ultra-fast Tooling**:
   - Bundled by [Vite](https://vitejs.dev/).
-  - Formatted and linted with [Biome](https://biomejs.dev/).
+  - Type-checked with TypeScript, formatted and linted with [Biome](https://biomejs.dev/).
 
 ---
 
@@ -29,9 +31,10 @@ Featuring smooth animations, interactive particle fields, an optimized project s
 | **Framework** | [TanStack Start](https://tanstack.com/start) (React 19, TypeScript) |
 | **Server Engine** | [Nitro](https://nitro.unjs.io/) |
 | **Styling** | [Tailwind CSS v4](https://tailwindcss.com/), Base UI, Lucide Icons |
-| **Animations** | [Motion](https://motion.dev/) (Framer Motion) |
-| **Images** | [@unpic/react](https://unpic.pics/img/react/) |
-| **Mail Transport** | [Nodemailer](https://nodemailer.com/) (Server Action) |
+| **Animations** | [Motion](https://motion.dev/), GSAP, OGL |
+| **Images** | WebP + [@unpic/react](https://unpic.pics/img/react/) |
+| **Mail Transport** | [Nodemailer](https://nodemailer.com/) (Server Function) |
+| **Validation & Env** | [Zod](https://zod.dev/), [@t3-oss/env-core](https://env.t3.gg/) |
 | **Linter & Formatter** | [Biome](https://biomejs.dev/) |
 
 ---
@@ -64,19 +67,19 @@ cp .env.example .env
 Open `.env` and fill in your contact information and SMTP credentials:
 
 ```ini
-# Public
+# Public (also used for SEO: canonical URL, OG tags, sitemap)
 VITE_BASE_URL=http://localhost:3000
 VITE_MY_EMAIL=your_email@gmail.com
 VITE_CONTACT_PHONE=0901234567
 VITE_LINKEDIN_URL=https://www.linkedin.com/in/your-profile
 VITE_GITHUB_URL=https://github.com/your-username
 
-# SMTP Server Action (e.g. Gmail App Password)
+# SMTP Server Function (e.g. Gmail App Password)
 SMTP_HOST=smtp.gmail.com
 SMTP_PORT=465
 SMTP_USER=your_email@gmail.com
 SMTP_PASS=xxxx xxxx xxxx xxxx
-SMTP_FROM="Portfolio Contact" <your_email@gmail.com>
+SMTP_FROM=your_email@gmail.com
 ```
 
 > **Note**: For Gmail, generate a 16-character **App Password** from [Google Account Security](https://myaccount.google.com/apppasswords) (requires 2FA enabled).
@@ -96,11 +99,12 @@ pnpm dev
 | Command | Description |
 |---|---|
 | `pnpm dev` | Starts the Vite + TanStack Start dev server at port `3000` |
-| `pnpm build` | Compiles client assets and generates the Nitro SSR server bundle |
+| `pnpm build` | Generates SEO files (`sitemap.xml`, `robots.txt`), then builds client + Nitro SSR bundle |
 | `pnpm preview` | Locally previews the production build |
+| `pnpm typecheck` | Type-checks the project (`tsc --noEmit`) |
 | `pnpm format` | Formats codebase using Biome (`biome format --write`) |
-| `pnpm lint` | Runs Biome linter with auto-fixing (`biome lint --write`) |
-| `pnpm check` | Full code quality check & auto-fix (`format`, `lint`, and `organizeImports`) |
+| `pnpm lint` | Runs Biome linter (`biome lint`) |
+| `pnpm check` | Full Biome check (`biome check`) |
 
 ---
 
@@ -110,8 +114,8 @@ This project is pre-configured with Nitro for instant Vercel deployment:
 
 1. Push your code to your GitHub repository.
 2. Import the repository in [Vercel](https://vercel.com).
-3. The framework is preset to `TanStack Start` via [`vercel.json`](file:///d:/Code/portfolio/vercel.json).
-4. Add the environment variables from your `.env` (`SMTP_HOST`, `SMTP_PORT`, `SMTP_USER`, `SMTP_PASS`, `SMTP_FROM`, `VITE_MY_EMAIL`) in the Vercel Project Settings.
+3. The framework is preset to `TanStack Start` via `vercel.json`.
+4. Add the environment variables from your `.env` (`VITE_BASE_URL`, `VITE_MY_EMAIL`, `VITE_CONTACT_PHONE`, `VITE_LINKEDIN_URL`, `VITE_GITHUB_URL`, `SMTP_HOST`, `SMTP_PORT`, `SMTP_USER`, `SMTP_PASS`, `SMTP_FROM`) in the Vercel Project Settings. Set `VITE_BASE_URL` to your production domain so OG tags, canonical links, and sitemap use the right URL.
 5. Hit **Deploy**!
 
 ---

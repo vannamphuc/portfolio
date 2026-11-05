@@ -22,51 +22,51 @@ interface WorkProject {
 
 const WORKS: WorkProject[] = [
 	{
-		src: "/works/oliny/oliny.jpg",
+		src: "/works/oliny/oliny.webp",
 		title: "Oliny Business Phone",
 		subtitle: "Twilio VoIP (WebRTC) • Shared Inbox • TwiML routing",
-		images: ["/works/oliny/oliny.jpg", "/works/oliny/oliny_2.jpg"],
+		images: ["/works/oliny/oliny.webp", "/works/oliny/oliny_2.webp"],
 	},
 	{
-		src: "/works/skipli_buti/dashboard.png",
+		src: "/works/skipli_buti/dashboard.webp",
 		title: "Skipli / BUTI Platform",
 		subtitle: "Restaurant SaaS • Node.js monolith • React web & mobile",
 		images: [
-			"/works/skipli_buti/dashboard.png",
-			"/works/skipli_buti/ordering.png",
-			"/works/skipli_buti/website_builder.png",
-			"/works/skipli_buti/website_builder_preview.png",
-			"/works/skipli_buti/marketplace.png",
-			"/works/skipli_buti/create_ordering.jpg",
+			"/works/skipli_buti/dashboard.webp",
+			"/works/skipli_buti/ordering.webp",
+			"/works/skipli_buti/website_builder.webp",
+			"/works/skipli_buti/website_builder_preview.webp",
+			"/works/skipli_buti/marketplace.webp",
+			"/works/skipli_buti/create_ordering.webp",
 		],
 	},
 	{
-		src: "/works/trade/trade.png",
+		src: "/works/trade/trade.webp",
 		title: "Trade - BO Platform",
 		subtitle: "Crypto trading • KLineChart • Live WebSocket order books",
 		images: [
-			"/works/trade/trade.png",
-			"/works/trade/amaxbot.png",
-			"/works/trade/mxtrade.png",
+			"/works/trade/trade.webp",
+			"/works/trade/amaxbot.webp",
+			"/works/trade/mxtrade.webp",
 		],
 	},
 	{
-		src: "/works/review_ai/google_reviews.png",
+		src: "/works/review_ai/google_reviews.webp",
 		title: "Reviews AI auto-reply",
 		subtitle: "Google Business API • OpenAI & Gemini dual-worker",
-		images: ["/works/review_ai/google_reviews.png"],
+		images: ["/works/review_ai/google_reviews.webp"],
 	},
 	{
-		src: "/works/thermal_printers/thermal_printers.jpg",
+		src: "/works/thermal_printers/thermal_printers.webp",
 		title: "Thermal printing engine",
 		subtitle: "Star Micronics & Epson • BLE + TCP + LAN discovery",
-		images: ["/works/thermal_printers/thermal_printers.jpg"],
+		images: ["/works/thermal_printers/thermal_printers.webp"],
 	},
 	{
-		src: "/works/stripe/stripe.png",
+		src: "/works/stripe/stripe.webp",
 		title: "Stripe & Cloud Infra",
 		subtitle: "Stripe Connect payouts • AWS S3/CloudFront • CodePush OTA",
-		images: ["/works/stripe/stripe.png"],
+		images: ["/works/stripe/stripe.webp"],
 	},
 ];
 
@@ -264,6 +264,7 @@ export function Works() {
 											alt={`Thumbnail ${idx + 1}`}
 											width={80}
 											height={80}
+											loading="lazy"
 											className="h-full w-full object-cover"
 										/>
 									</button>

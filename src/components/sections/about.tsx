@@ -15,7 +15,7 @@ export function About() {
 					</p>
 				</div>
 				<div>
-					<div className="space-y-4 text-base leading-relaxed text-foreground sm:text-lg">
+					<div className="space-y-4 font-sans text-base leading-relaxed text-foreground sm:text-lg">
 						<p>
 							Full-Stack & Mobile Engineer with 3 years of experience
 							architecting and shipping production systems across React Native,
@@ -43,7 +43,7 @@ export function About() {
 							from FPT College.
 						</p>
 					</div>
-					<Button asChild variant="secondary" className="mt-6 px-0 font-bold">
+					<Button asChild variant="link" className="mt-6 h-auto p-0 font-bold">
 						<Link to="/" hash="contact" hashScrollIntoView={SMOOTH_SCROLL}>
 							Contact me <ArrowRight />
 						</Link>

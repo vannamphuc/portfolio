@@ -7,6 +7,8 @@ const contactPayloadSchema = z.object({
 	email: z.email().max(254),
 	subject: z.string().trim().max(200).optional(),
 	message: z.string().trim().min(1).max(5000),
+	// Honeypot: real users never fill this hidden field; bots usually do.
+	company: z.string().trim().max(100).optional(),
 });
 
 export const $sendContactEmail = createServerFn({ method: "POST" })
@@ -15,6 +17,10 @@ export const $sendContactEmail = createServerFn({ method: "POST" })
 		const { checkContactRateLimit, sendContactEmail } = await import(
 			"./mail.server"
 		);
+		// Silently accept honeypot submissions so bots can't detect the trap.
+		if (data.company) {
+			return { success: true };
+		}
 		try {
 			const forwardedFor = getRequestHeader("x-forwarded-for");
 			const clientIp = forwardedFor?.split(",")[0]?.trim() || "unknown";

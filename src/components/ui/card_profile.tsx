@@ -1,5 +1,5 @@
 import { MailIcon } from "lucide-react";
-import Me from "#/assets/me.jpg";
+import Me from "#/assets/me.webp";
 import {
 	Avatar,
 	AvatarFallback,
@@ -13,6 +13,7 @@ import {
 	CardTitle,
 } from "#/components/ui/card.tsx";
 import { Separator } from "#/components/ui/separator.tsx";
+import { env } from "#/env/client";
 
 export interface CardProfileStat {
 	label: string;
@@ -35,7 +36,7 @@ export function CardProfile({
 	initials = "VP",
 	title = "Full-Stack & Mobile Engineer",
 	badge = "Open to work",
-	email = "phucnamvan@gmail.com",
+	email = env.VITE_MY_EMAIL,
 	avatarUrl = Me,
 	stats = [
 		{ label: "Experience", value: "3 Yrs" },

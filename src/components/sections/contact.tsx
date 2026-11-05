@@ -18,15 +18,19 @@ import { SMOOTH_SCROLL } from "./shared";
 
 const CONTACT_EMAIL = env.VITE_MY_EMAIL;
 const CONTACT_PHONE = env.VITE_CONTACT_PHONE;
-const CONTACT_PHONE_RAW = `+84${CONTACT_PHONE.split("0").join("").replaceAll(" ", "")}`;
+const CONTACT_PHONE_RAW = `+84${CONTACT_PHONE.replaceAll(" ", "").replace(/^0/, "")}`;
 const LINKEDIN_URL = env.VITE_LINKEDIN_URL;
 const GITHUB_URL = env.VITE_GITHUB_URL;
+const LINKEDIN_LABEL = LINKEDIN_URL.replace(/^https?:\/\//, "");
+const GITHUB_LABEL = GITHUB_URL.replace(/^https?:\/\//, "");
 
 function ContactForm() {
 	const [name, setName] = useState("");
 	const [email, setEmail] = useState("");
 	const [subject, setSubject] = useState("");
 	const [message, setMessage] = useState("");
+	// Honeypot field — hidden from real users, only bots fill it.
+	const [company, setCompany] = useState("");
 	const [status, setStatus] = useState<"idle" | "sending" | "error" | "sent">(
 		"idle",
 	);
@@ -49,6 +53,7 @@ function ContactForm() {
 					email: email.trim(),
 					subject: subject.trim(),
 					message: message.trim(),
+					company: company.trim(),
 				},
 			});
 			if (!result.success) {
@@ -59,6 +64,7 @@ function ContactForm() {
 			setEmail("");
 			setSubject("");
 			setMessage("");
+			setCompany("");
 		} catch (err) {
 			console.error("Failed to send message:", err);
 			setStatus("error");
@@ -73,6 +79,19 @@ function ContactForm() {
 			onSubmit={onSubmit}
 			className="rounded-3xl border border-border/60 bg-background/80 p-6 shadow-sm backdrop-blur md:p-8"
 		>
+			{/* Honeypot: invisible to humans, traps spam bots. */}
+			<label
+				aria-hidden="true"
+				className="pointer-events-none absolute h-0 w-0 overflow-hidden opacity-0"
+			>
+				Company (leave blank)
+				<input
+					value={company}
+					onChange={(e) => setCompany(e.target.value)}
+					autoComplete="off"
+					tabIndex={-1}
+				/>
+			</label>
 			<div className="grid gap-4 sm:grid-cols-2">
 				<label className="grid gap-1.5 text-sm font-medium">
 					Name
@@ -188,8 +207,7 @@ export function Contact() {
 									rel="noreferrer noopener"
 									className="inline-flex items-center gap-2.5 opacity-90 transition-opacity hover:opacity-100 hover:underline"
 								>
-									<Linkedin className="size-4" />{" "}
-									linkedin.com/in/van-nam-phuc-41a73622b
+									<Linkedin className="size-4" /> {LINKEDIN_LABEL}
 								</a>
 							</li>
 							<li>
@@ -199,7 +217,7 @@ export function Contact() {
 									rel="noreferrer noopener"
 									className="inline-flex items-center gap-2.5 opacity-90 transition-opacity hover:opacity-100 hover:underline"
 								>
-									<Github className="size-4" /> github.com/vannamphuc
+									<Github className="size-4" /> {GITHUB_LABEL}
 								</a>
 							</li>
 							<li className="inline-flex items-center gap-2.5 opacity-90">

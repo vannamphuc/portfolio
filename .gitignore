@@ -11,3 +11,6 @@ dist-ssr
 .vinxi
 __unconfig*
 todos.json
+# Build-time generated SEO files (see scripts/generate-seo.mjs)
+public/sitemap.xml
+public/robots.txt

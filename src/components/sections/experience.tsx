@@ -4,6 +4,7 @@ import { Badge } from "#/components/ui/badge";
 import { Button } from "#/components/ui/button";
 import ScrollFloat from "#/components/ui/scroll_float";
 import { EXPERIENCES } from "#/data/experience";
+import { SMOOTH_SCROLL } from "./shared";
 
 export function Experience() {
 	return (
@@ -56,7 +57,11 @@ export function Experience() {
 								variant="link"
 								className="mt-2 h-auto w-fit p-0 text-sm font-bold"
 							>
-								<Link to="/experience" hash={`exp-${i}`}>
+								<Link
+									to="/experience"
+									hash={`exp-${i}`}
+									hashScrollIntoView={SMOOTH_SCROLL}
+								>
 									View details <ArrowRight />
 								</Link>
 							</Button>

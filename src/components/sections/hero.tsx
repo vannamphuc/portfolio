@@ -3,11 +3,11 @@ import { ArrowDown, ArrowRight } from "lucide-react";
 import { Button } from "#/components/ui/button";
 import { CardProfile } from "#/components/ui/card_profile";
 import CircularText from "#/components/ui/circular_text";
-import { TypewriterText } from "#/components/ui/typewritter-text";
+import { TypewriterText } from "#/components/ui/typewriter-text";
 import { SMOOTH_SCROLL } from "./shared";
 
 const STATS = [
-	["2+", "Years Experience"],
+	["3+", "Years Experience"],
 	["3+", "Production Repos"],
 	["5+", "Apps Shipped"],
 ] as const;
@@ -23,7 +23,7 @@ export function Hero() {
 					<p className="inline-block w-fit rounded-full border border-border bg-card px-3 py-1 text-xs font-semibold uppercase tracking-widest">
 						● Full-Stack & Mobile Engineer — React Native · ReactJS · Node.js
 					</p>
-					<h1 className="mt-5 text-2xl font-bold leading-[1.1] tracking-tight lg:text-3xl">
+					<h1 className="mt-5 text-3xl font-bold leading-[1.1] tracking-tight sm:text-4xl lg:text-5xl">
 						Hi, I&apos;m Van Nam Phuc.
 						<br />
 						Full-Stack & Mobile <span className="text-primary">Engineer</span>
@@ -39,12 +39,12 @@ export function Hero() {
 						/>
 					</h1>
 					<p className="mt-6 max-w-xl text-base leading-relaxed">
-						Full-Stack & Mobile Engineer with 3 years of experience
-						architecting and shipping production systems across React Native,
-						ReactJS, and Node.js. Proven track record in owning end-to-end
-						product lifecycles—from system architecture and cloud infrastructure
-						to Twilio VoIP solutions, native hardware integrations, and App
-						Store rollouts.
+						Full-Stack & Mobile Engineer with 3 years of experience architecting
+						and shipping production systems across React Native, ReactJS, and
+						Node.js. Proven track record in owning end-to-end product
+						lifecycles—from system architecture and cloud infrastructure to
+						Twilio VoIP solutions, native hardware integrations, and App Store
+						rollouts.
 					</p>
 					<div className="mt-8 flex flex-wrap items-center gap-3">
 						<Button asChild size="lg" className="rounded-xl">
