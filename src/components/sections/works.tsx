@@ -28,6 +28,22 @@ interface WorkProject {
 
 const WORKS: WorkProject[] = [
 	{
+		src: "/works/vpflow/screenshot-light.webp",
+		title: "VPFlow — Team Chat + AI Summary",
+		subtitle: "Next.js 16 • ORPC • PartyServer realtime • AI SDK",
+		images: [
+			"/works/vpflow/screenshot-light.webp",
+			"/works/vpflow/screenshot-dark.webp",
+		],
+		links: [
+			{ label: "Live Demo", url: "https://next-ai-saas-xi.vercel.app/" },
+			{
+				label: "GitHub",
+				url: "https://github.com/vannamphuc/next_ai_saas",
+			},
+		],
+	},
+	{
 		src: "/works/oliny/oliny.webp",
 		title: "Oliny Business Phone",
 		subtitle: "Twilio VoIP (WebRTC) • Shared Inbox • TwiML routing",
@@ -141,8 +157,8 @@ export function Works() {
 						<ScrollFloat textClassName="font-bold">Selected work</ScrollFloat>
 						<p className="mt-2 max-w-xl text-sm text-foreground/90">
 							Production systems and flagship features I architected across
-							Skipli, Oliny, and DKTech — click any project card to view
-							high-resolution gallery.
+							Skipli, Oliny, DKTech, and independent work — click any project
+							card to view high-resolution gallery.
 						</p>
 					</div>
 					<Button asChild variant="secondary" className="rounded-xl">

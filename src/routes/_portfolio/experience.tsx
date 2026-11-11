@@ -34,7 +34,8 @@ function ExperiencePage() {
 					</ScrollFloat>
 					<p className="mt-2 max-w-2xl text-sm text-muted-foreground">
 						Comprehensive record of engineering roles, production systems, and
-						academic distinction across Skipli, DKTech, and FPT College.
+						academic distinction across Skipli, DKTech, independent work, and
+						FPT College.
 					</p>
 				</div>
 			</section>

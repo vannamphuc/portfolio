@@ -51,6 +51,65 @@ export const EDUCATION: EducationItem[] = [
 
 export const EXPERIENCES: ExperienceRole[] = [
 	{
+		company: "Independent",
+		title: "Full-Stack Developer · Side Project",
+		period: "Jan 2026 — Nov 2026",
+		location: "Remote",
+		summary:
+			"Solo-built VPFlow, a Slack-style team communication SaaS: workspaces, channels, threads, and realtime messaging with infinite scroll, plus streaming AI thread summaries and an AI compose assistant. Shipped a marketing landing page and the full app with dark mode, responsive layouts, and hardened empty/loading/error states.",
+		highlights: [
+			"Designed and built the full Workspace > Channel > Message > Thread flow solo, from landing page to realtime app and Vercel deployment.",
+			"Built realtime chat with PartyServer: infinite reverse scroll with scroll-position restore, New Messages pill, and pinned scroll on late image loads.",
+			"Added streaming AI features with AI SDK + OpenRouter: one-click thread summaries and an AI compose rewrite with accept/decline.",
+			"Built a Tiptap rich-text composer (formatting, code blocks, image uploads via UploadThing) with crash-safe rendering for malformed content.",
+			"Shipped invites by email, member list with search and online presence, realtime emoji reactions, and optimistic UI with rollback on failure.",
+		],
+		stack: [
+			"Next.js 16",
+			"React 19",
+			"TypeScript",
+			"Tailwind CSS v4",
+			"shadcn/ui",
+			"ORPC",
+			"TanStack Query",
+			"Prisma",
+			"Neon",
+			"Kinde",
+			"PartyServer",
+			"UploadThing",
+			"AI SDK",
+			"Arcjet",
+		],
+		projects: [
+			{
+				title: "VPFlow — Team Chat + AI Summary",
+				period: "Jan 2026 — Nov 2026",
+				desc: "Slack-style team communication SaaS built solo: workspaces, channels, threads, realtime messaging with infinite scroll and New Messages pill, Tiptap composer with image uploads, emoji reactions, email invites with online presence, and streaming AI summaries. Hardened rendering, accessible states, dark mode, responsive desktop/tablet/mobile.",
+				tags: [
+					"Next.js",
+					"React",
+					"ORPC",
+					"PartyServer",
+					"Prisma",
+					"Kinde",
+					"AI SDK",
+					"Tailwind CSS",
+				],
+				image: "/works/vpflow/screenshot-light.webp",
+				links: [
+					{
+						label: "Live Demo",
+						url: "https://next-ai-saas-xi.vercel.app/",
+					},
+					{
+						label: "GitHub",
+						url: "https://github.com/vannamphuc/next_ai_saas",
+					},
+				],
+			},
+		],
+	},
+	{
 		company: "Skipli",
 		companyUrl: "https://www.skiplinow.com/",
 		title: "Full-Stack Engineer",
